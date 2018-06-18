@@ -1,4 +1,4 @@
-package com.example.vikaskumar.coccompleteguide.Utility;
+package com.example.vikaskumar.coccompleteguide.utility;
 
 public class Resources {
 

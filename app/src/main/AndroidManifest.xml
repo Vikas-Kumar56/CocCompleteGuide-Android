@@ -16,8 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeBaseActivity" />
-        <activity android:name=".HomeBaseDesignActivity"></activity>
+        <activity
+            android:name=".HomeBaseActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".HomeBaseDesignActivity" />
+        <activity android:name=".BeginnersGuideActivity"
+            android:parentActivityName=".HomeBaseActivity"/>
     </application>
 
 </manifest>
