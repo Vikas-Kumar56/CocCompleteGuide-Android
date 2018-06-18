@@ -8,6 +8,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.vikaskumar.coccompleteguide.Utility.Navigator;
+import com.example.vikaskumar.coccompleteguide.Utility.Resources;
+
+
 public class MainActivity extends AppCompatActivity {
 
     ImageView homeBase;
@@ -23,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Log.d("hello","here");
-                Navigator.getInstance().navigateToHomeBaseActivity(context,Resources.homeBase+"");
+
+                Navigator.getInstance().navigateToHomeBaseActivity(context, Resources.homeBase+"");
             }
         });
     }
