@@ -4,7 +4,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BeginnersGuideActivity">
+    tools:context=".BeginnersGuideActivity"
+    android:background="@drawable/background">
 
     <include layout="@layout/toolbar" />
 
@@ -13,7 +14,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:background="@color/colorPrimary"
-        android:padding="10dp"/>
+
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"/>
 
     </android.support.design.widget.CoordinatorLayout>

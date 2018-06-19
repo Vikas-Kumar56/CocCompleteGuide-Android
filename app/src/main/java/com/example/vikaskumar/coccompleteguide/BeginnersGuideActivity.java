@@ -18,8 +18,8 @@ import java.util.List;
 
 public class BeginnersGuideActivity extends AppCompatActivity {
 
-    private List<String> gridTexts = new ArrayList<>(Arrays.asList("Army", "Builders", "Clan Castle", "Clan Games", "Clan Wars", "Clan", "Defences"));
-    private List<Integer> gridImages = new ArrayList<>(Arrays.asList(R.drawable.pic_army, R.drawable.pic_builder, R.drawable.pic_army, R.drawable.pic_builder, R.drawable.pic_army, R.drawable.pic_builder, R.drawable.pic_army));
+    private List<String> gridTexts = new ArrayList<>(Arrays.asList("Army", "Builders", "Clan Castle", "Clan Games", "Clan Wars", "Clan", "Defences", "Leagues", "Townhall", "Hero", "Gems", "Laboratory", "Obstacles"));
+    private List<Integer> gridImages = new ArrayList<>(Arrays.asList(R.drawable.pic_army, R.drawable.pic_builder, R.drawable.pic_clan_castle, R.drawable.pic_clan_games, R.drawable.pic_army, R.drawable.pic_builder, R.drawable.pic_defenses, R.drawable.pic_leagues, R.drawable.pic_townhall, R.drawable.pic_hero, R.drawable.pic_gems, R.drawable.pic_laboratory, R.drawable.pic_obstacles));
 
     private Toolbar toolbar;
     private RecyclerView gridItems;

@@ -63,14 +63,14 @@
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
 
+                            android:fontFamily="@font/aclonica"
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="All TH Base Design >>"
                             android:textAppearance="@style/TextAppearance.AppCompat.Button"
                             android:textColor="@color/white"
                             android:textSize="20sp"
-                            android:textStyle="bold"
-                            />
+                            android:textStyle="bold" />
                     </RelativeLayout>
 
                 </android.support.v7.widget.CardView>
@@ -103,6 +103,7 @@
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
                             android:background="@color/black_transparent_light"
+                            android:fontFamily="@font/aclonica"
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="Engineered Base Guide"
@@ -142,6 +143,7 @@
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
                             android:background="@color/black_transparent_light"
+                            android:fontFamily="@font/aclonica"
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="Army Composition"
@@ -181,6 +183,7 @@
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
                             android:background="@color/black_transparent_light"
+                            android:fontFamily="@font/aclonica"
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="Game Strategy"
@@ -221,6 +224,7 @@
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
                             android:background="@color/black_transparent_light"
+                            android:fontFamily="@font/aclonica"
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="Funny Layouts"
