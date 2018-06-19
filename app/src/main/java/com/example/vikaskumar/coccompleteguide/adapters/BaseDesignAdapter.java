@@ -7,13 +7,37 @@ import android.view.ViewGroup;
 
 import com.example.vikaskumar.coccompleteguide.Models.BaseDesignModel;
 import com.example.vikaskumar.coccompleteguide.R;
+import com.malinskiy.superrecyclerview.SuperRecyclerView;
+import com.malinskiy.superrecyclerview.swipe.BaseSwipeAdapter;
 
 import java.util.List;
 
-public class BaseDesignAdapter extends RecyclerView.Adapter<BaseDesignAdapter.MapViewHolder> {
+public class BaseDesignAdapter extends BaseSwipeAdapter<BaseSwipeAdapter.BaseSwipeableViewHolder> {
 
     private List<BaseDesignModel> baseDesignModelList;
-    class MapViewHolder extends RecyclerView.ViewHolder {
+
+    public BaseDesignAdapter(List<BaseDesignModel> baseDesignModelList){
+        this.baseDesignModelList=baseDesignModelList;
+    }
+    public void setData(List<BaseDesignModel> baseDesignModelList) {
+        this.baseDesignModelList=baseDesignModelList;
+    }
+    @Override
+    public BaseSwipeableViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return null;
+    }
+
+    @Override
+    public void onBindViewHolder(BaseSwipeableViewHolder holder, int position, List<Object> payLoads) {
+        super.onBindViewHolder(holder, position);
+    }
+
+    @Override
+    public int getItemCount() {
+        return 0;
+    }
+
+    class MapViewHolder extends BaseSwipeableViewHolder {
 
 
         public MapViewHolder(View view) {
@@ -21,26 +45,7 @@ public class BaseDesignAdapter extends RecyclerView.Adapter<BaseDesignAdapter.Ma
 
         }
     }
-   public BaseDesignAdapter(List<BaseDesignModel> baseDesignModelList){
-        this.baseDesignModelList=baseDesignModelList;
-   }
-    @Override
-    public MapViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.base_design_row, parent, false);
 
-        return new MapViewHolder(itemView);
-    }
-
-    @Override
-    public void onBindViewHolder(MapViewHolder holder, int position) {
-
-    }
-
-    @Override
-    public int getItemCount() {
-        return baseDesignModelList.size();
-    }
 
 
 }

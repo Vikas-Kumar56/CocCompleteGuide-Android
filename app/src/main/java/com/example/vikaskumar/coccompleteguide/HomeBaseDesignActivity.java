@@ -66,6 +66,7 @@ public class HomeBaseDesignActivity extends AppCompatActivity {
         adapter.addBase(WarBase.getInstance(Resources.farmingBase), "Farming");
         adapter.addBase(WarBase.getInstance(Resources.hybridBase),"Hybrid");
         viewPager.setAdapter(adapter);
+        viewPager.setOffscreenPageLimit(4);
     }
 
     public static Intent getCallingIntent(Context context) {

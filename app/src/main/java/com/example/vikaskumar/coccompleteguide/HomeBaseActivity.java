@@ -7,10 +7,10 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import com.example.vikaskumar.coccompleteguide.utility.Navigator;
 import com.example.vikaskumar.coccompleteguide.utility.Resources;
+
 
 public class HomeBaseActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -49,7 +49,9 @@ public class HomeBaseActivity extends AppCompatActivity implements View.OnClickL
     }
 
     public static Intent getCallingIntent(Context context) {
+
         return new Intent(context, HomeBaseActivity.class);
+
     }
 
 
