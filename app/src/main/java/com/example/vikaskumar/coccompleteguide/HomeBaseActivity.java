@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.vikaskumar.coccompleteguide.utility.Navigator;
@@ -14,7 +15,7 @@ import com.example.vikaskumar.coccompleteguide.utility.Resources;
 public class HomeBaseActivity extends AppCompatActivity implements View.OnClickListener {
 
     private int homeBaseId;
-    private LinearLayout baseDesignPicture;
+    private ImageView baseDesignPicture;
     private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,7 @@ public class HomeBaseActivity extends AppCompatActivity implements View.OnClickL
 
     private void initViews() {
         toolbar = (Toolbar)findViewById(R.id.toolbar);
-        baseDesignPicture=(LinearLayout) findViewById(R.id.baseDesignPicture);
+        baseDesignPicture=(ImageView) findViewById(R.id.baseDesignPicture);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -55,7 +56,7 @@ public class HomeBaseActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.baseDesignPicture: Navigator.getInstance().navigateToBeginnersGuideActivity(this, Resources.homeBaseDesign+"");baseDesignPicture.setOnClickListener(this);
+            case R.id.baseDesignPicture: Navigator.getInstance().navigateToHomeBaseDesignActivity(this, Resources.homeBaseDesign+"");
         }
     }
 
