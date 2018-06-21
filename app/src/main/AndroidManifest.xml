@@ -3,6 +3,7 @@
     package="com.example.vikaskumar.coccompleteguide">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,12 +22,15 @@
             android:name=".HomeBaseActivity"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".HomeBaseDesignActivity" />
-        <activity android:name=".BeginnersGuideActivity"
-            android:parentActivityName=".HomeBaseActivity"/>
+        <activity
+            android:name=".BeginnersGuideActivity"
+            android:parentActivityName=".HomeBaseActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <activity android:name=".HeroesActivity"></activity>
     </application>
 
 </manifest>
