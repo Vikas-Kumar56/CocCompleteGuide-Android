@@ -18,6 +18,7 @@ public class HomeBaseActivity extends AppCompatActivity implements View.OnClickL
     private ImageView baseDesignPicture;
     private ImageView engineerBasePicture;
     private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,8 +29,8 @@ public class HomeBaseActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void initViews() {
-        toolbar = (Toolbar)findViewById(R.id.toolbar);
-        baseDesignPicture=(ImageView) findViewById(R.id.baseDesignPicture);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        baseDesignPicture = (ImageView) findViewById(R.id.baseDesignPicture);
         engineerBasePicture = findViewById(R.id.engineeredBase);
 
         setSupportActionBar(toolbar);
@@ -61,8 +62,12 @@ public class HomeBaseActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.baseDesignPicture: Navigator.getInstance().navigateToHomeBaseDesignActivity(this, Resources.homeBaseDesign+""); break;
-            case R.id.engineeredBase: Navigator.getInstance().navigateToBeginnersGuideActivity(this, ""); break;
+            case R.id.baseDesignPicture:
+                Navigator.getInstance().navigateToHomeBaseDesignActivity(this, Resources.homeBaseDesign + "");
+                break;
+            case R.id.engineeredBase:
+                Navigator.getInstance().navigateToBeginnersGuideActivity(this, "");
+                break;
         }
     }
 

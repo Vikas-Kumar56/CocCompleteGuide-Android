@@ -8,10 +8,10 @@ public class Resources {
     public static final int builderBase = 200;
     public static final int homeBaseDesign = 101;
 
-    public static final int warBase = 1011;
-    public static final int farmingBase = 1012;
-    public static final int tropiesBase = 1013;
-    public static final int hybridBase = 1014;
+    public static final int warBase = 1;
+    public static final int farmingBase = 2;
+    public static final int tropiesBase = 3;
+    public static final int hybridBase = 4;
 
     public static String homeBaseDesignToolBarText = "Base Design";
 }

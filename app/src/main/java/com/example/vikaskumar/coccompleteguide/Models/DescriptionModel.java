@@ -1,12 +1,24 @@
 package com.example.vikaskumar.coccompleteguide.Models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class DescriptionModel {
+
+    @SerializedName("Name")
     private String name;
+
+    @SerializedName("SpecialFeature")
     private String specialFeature;
+
+    @SerializedName("AntiTroopies")
     private List<String> antiTroopies;
+
+    @SerializedName("VideoUrl")
     private String VideoUrl;
+
+    @SerializedName("Description")
     private String description;
 
     public String getName() {

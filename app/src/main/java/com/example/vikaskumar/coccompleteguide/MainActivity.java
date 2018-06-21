@@ -15,22 +15,26 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView homeBase;
     Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        homeBase=(ImageView)findViewById(R.id.homeBase);
-        context=this;
+        homeBase = (ImageView) findViewById(R.id.homeBase);
+        context = this;
+
+
         // make imageview clckable to redirect to new activity
-        homeBase.setOnClickListener(new View.OnClickListener(){
+        homeBase.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
 
-                Navigator.getInstance().navigateToHomeBaseActivity(context, Resources.homeBase+"");
+                Navigator.getInstance().navigateToHomeBaseActivity(context, Resources.homeBase + "");
             }
         });
     }
+
     public static Intent getCallingIntent(Context context) {
         return new Intent(context, MainActivity.class);
     }

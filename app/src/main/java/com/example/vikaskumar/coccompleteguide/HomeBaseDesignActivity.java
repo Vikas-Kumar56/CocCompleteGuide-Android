@@ -23,6 +23,7 @@ public class HomeBaseDesignActivity extends AppCompatActivity {
     private TextView toolBarText;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +35,7 @@ public class HomeBaseDesignActivity extends AppCompatActivity {
     private void initViews() {
 
         //setting up toolbar
-        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -44,7 +45,7 @@ public class HomeBaseDesignActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-        toolBarText=(TextView)findViewById(R.id.toolbarText);
+        toolBarText = (TextView) findViewById(R.id.toolbarText);
         toolBarText.setText(Resources.homeBaseDesignToolBarText);
 
         //setting tabs
@@ -64,7 +65,7 @@ public class HomeBaseDesignActivity extends AppCompatActivity {
         adapter.addBase(WarBase.getInstance(Resources.warBase), "War");
         adapter.addBase(WarBase.getInstance(Resources.tropiesBase), "Troopy");
         adapter.addBase(WarBase.getInstance(Resources.farmingBase), "Farming");
-        adapter.addBase(WarBase.getInstance(Resources.hybridBase),"Hybrid");
+        adapter.addBase(WarBase.getInstance(Resources.hybridBase), "Hybrid");
         viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(4);
     }

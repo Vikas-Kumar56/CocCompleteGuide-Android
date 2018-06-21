@@ -8,7 +8,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RestClient {
-    private static ApiCall REST_CLIENT=null;
+    private static ApiCall REST_CLIENT = null;
     private static String ROOT = "http://coc-strategy.herokuapp.com/api/";
     //private static String ROOT = "http://192.168.1.10:3000/api/v1/";
 
@@ -16,7 +16,8 @@ public class RestClient {
         setupRestClient();
     }
 
-    private RestClient() {}
+    private RestClient() {
+    }
 
     public static ApiCall get() {
         return REST_CLIENT;

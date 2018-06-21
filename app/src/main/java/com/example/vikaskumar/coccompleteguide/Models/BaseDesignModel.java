@@ -1,18 +1,38 @@
 package com.example.vikaskumar.coccompleteguide.Models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 import java.util.List;
 
 public class BaseDesignModel {
+
+    @SerializedName("Id")
     private int mapId;
+
+    @SerializedName("townhallId")
     private int townhallId;
+
+    @SerializedName("typeId")
     private int typeId;
+
+    @SerializedName("url")
     private String url;
-    private String description;
+
+    @SerializedName("favouriteCount")
     private int favouriteCount;
+
+    @SerializedName("isTrending")
     private boolean isTrending;
+
+    @SerializedName("createdDate")
     private Date createdDate;
+
+    @SerializedName("updatedDate")
     private Date updatedDate;
+
+    //@SerializedName("description")
+    //private DescriptionModel description;
 
     public int getMapId() {
         return mapId;
@@ -46,13 +66,13 @@ public class BaseDesignModel {
         this.url = url;
     }
 
-    public String getDescription() {
+    /*public DescriptionModel getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(DescriptionModel description) {
         this.description = description;
-    }
+    }*/
 
     public int getFavouriteCount() {
         return favouriteCount;

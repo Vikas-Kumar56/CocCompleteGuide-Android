@@ -23,6 +23,7 @@ public class GridViewAdapter extends RecyclerView.Adapter {
         this.gridTexts = gridTexts;
 
     }
+
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_layout, parent, false);
@@ -33,7 +34,7 @@ public class GridViewAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        GridViewItemHolder viewHolder = (GridViewItemHolder)holder;
+        GridViewItemHolder viewHolder = (GridViewItemHolder) holder;
         viewHolder.gridImage.setImageResource(gridImages.get(position));
         viewHolder.gridText.setText(gridTexts.get(position));
     }

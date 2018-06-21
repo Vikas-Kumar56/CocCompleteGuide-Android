@@ -23,6 +23,7 @@ public class BeginnersGuideActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private RecyclerView gridItems;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +37,7 @@ public class BeginnersGuideActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         gridItems = findViewById(R.id.recycler_view);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
