@@ -7,7 +7,7 @@ import java.util.List;
 
 public class BaseDesignModel {
 
-    @SerializedName("Id")
+    @SerializedName("id")
     private int mapId;
 
     @SerializedName("townhallId")
@@ -31,8 +31,26 @@ public class BaseDesignModel {
     @SerializedName("updatedDate")
     private Date updatedDate;
 
-    //@SerializedName("description")
-    //private DescriptionModel description;
+    @SerializedName("description")
+    private String description;
+
+    private DescriptionModel baseDescription;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public DescriptionModel getBaseDescription() {
+        return baseDescription;
+    }
+
+    public void setBaseDescription(DescriptionModel baseDescription) {
+        this.baseDescription = baseDescription;
+    }
 
     public int getMapId() {
         return mapId;
@@ -65,14 +83,6 @@ public class BaseDesignModel {
     public void setUrl(String url) {
         this.url = url;
     }
-
-    /*public DescriptionModel getDescription() {
-        return description;
-    }
-
-    public void setDescription(DescriptionModel description) {
-        this.description = description;
-    }*/
 
     public int getFavouriteCount() {
         return favouriteCount;

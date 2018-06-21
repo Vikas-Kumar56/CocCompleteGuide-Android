@@ -2,12 +2,14 @@ package com.example.vikaskumar.coccompleteguide;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.vikaskumar.coccompleteguide.Fragments.FarmingBase;
@@ -54,7 +56,62 @@ public class HomeBaseDesignActivity extends AppCompatActivity {
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+        InitTabSettings();
+        SetListnerOnTabToChangeTextStyle();
     }
+
+    private void SetListnerOnTabToChangeTextStyle() {
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+
+                TextView text = (TextView) tab.getCustomView();
+
+                text.setTypeface(null, Typeface.BOLD);
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                TextView text = (TextView) tab.getCustomView();
+
+                text.setTypeface(null, Typeface.NORMAL);
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+
+        });
+    }
+
+    private void InitTabSettings() {
+        for (int i = 0; i < tabLayout.getTabCount(); i++) {
+
+            TabLayout.Tab tab = tabLayout.getTabAt(i);
+            if (tab != null) {
+
+                TextView tabTextView = new TextView(this);
+                tab.setCustomView(tabTextView);
+
+                tabTextView.getLayoutParams().width = ViewGroup.LayoutParams.WRAP_CONTENT;
+                tabTextView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
+
+                tabTextView.setText(tab.getText());
+                tabTextView.setTextSize(17);
+                tabTextView.setTextColor(getResources().getColor(R.color.white));
+                // First tab is the selected tab, so if i==0 then set BOLD typeface
+                if (i == 0) {
+                    tabTextView.setTypeface(null, Typeface.BOLD);
+                }
+
+            }
+
+        }
+    }
+
 
     private void initData() {
 
@@ -63,7 +120,7 @@ public class HomeBaseDesignActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addBase(WarBase.getInstance(Resources.warBase), "War");
-        adapter.addBase(WarBase.getInstance(Resources.tropiesBase), "Troopy");
+        adapter.addBase(WarBase.getInstance(Resources.tropiesBase), "Trophy");
         adapter.addBase(WarBase.getInstance(Resources.farmingBase), "Farming");
         adapter.addBase(WarBase.getInstance(Resources.hybridBase), "Hybrid");
         viewPager.setAdapter(adapter);

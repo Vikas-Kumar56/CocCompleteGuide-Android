@@ -22,11 +22,17 @@ import com.example.vikaskumar.coccompleteguide.adapters.BaseDesignAdapter;
 import com.example.vikaskumar.coccompleteguide.api.RestClient;
 import com.example.vikaskumar.coccompleteguide.utility.ObjectSerializer;
 import com.example.vikaskumar.coccompleteguide.utility.Resources;
+import com.google.gson.Gson;
 import com.malinskiy.superrecyclerview.OnMoreListener;
 import com.malinskiy.superrecyclerview.SuperRecyclerView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.zip.Inflater;
 
@@ -89,16 +95,16 @@ public class WarBase extends Fragment implements BaseDesignAdapter.ItemClickList
         int id = getArguments().getInt("Id");
         switch (id) {
             case Resources.warBase:
-                downlaodWarBase(8, Resources.warBase);
-                break;
-            case Resources.farmingBase:
                 downlaodWarBase(10, Resources.warBase);
                 break;
+            case Resources.farmingBase:
+                downlaodWarBase(8, Resources.farmingBase);
+                break;
             case Resources.hybridBase:
-                downlaodWarBase(8, Resources.warBase);
+                downlaodWarBase(8, Resources.hybridBase);
                 break;
             case Resources.tropiesBase:
-                downlaodWarBase(8, Resources.warBase);
+                downlaodWarBase(8, Resources.tropiesBase);
 
         }
     }
@@ -111,7 +117,12 @@ public class WarBase extends Fragment implements BaseDesignAdapter.ItemClickList
             public void onResponse(Call<List<BaseDesignModel>> call, Response<List<BaseDesignModel>> response) {
                 Log.d("data:*********", response.body().toString());
                 //Parse resposnse and update the list
-                baseDesignModelList.addAll(ParseBaseDesignData(response));
+                try {
+                    baseDesignModelList.addAll(ParseBaseDesignData(response));
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
                 adpter.setData(baseDesignModelList);
                 adpter.notifyDataSetChanged();
             }
@@ -125,11 +136,26 @@ public class WarBase extends Fragment implements BaseDesignAdapter.ItemClickList
 
     }
 
-    private List<BaseDesignModel> ParseBaseDesignData(Response<List<BaseDesignModel>> response) {
+    private List<BaseDesignModel> ParseBaseDesignData(Response<List<BaseDesignModel>> response) throws JSONException {
         List<BaseDesignModel> newBaseDesignData = new ArrayList<BaseDesignModel>();
         for (BaseDesignModel obj : response.body()) {
+
+            // parse description JSON into DescriptionModel
+            DescriptionModel descriptionModel=new DescriptionModel();
+            JSONObject descObject = new JSONObject(obj.getDescription());
+            descriptionModel.setName(descObject.getString("Name"));
+            descriptionModel.setDescription(descObject.getString("Description"));
+            descriptionModel.setSpecialFeature(descObject.getString("SpecialFeature"));
+            descriptionModel.setVideoUrl(descObject.getString("VideoUrl"));
+            JSONArray array=descObject.getJSONArray("AntiTroopies");
+            ArrayList<String> antiTroopies=new ArrayList<>();
+            for (int value=0 ;value<array.length();value++){
+                antiTroopies.add(array.getString(value));
+            }
+            descriptionModel.setAntiTroopies(antiTroopies);
+            obj.setBaseDescription(descriptionModel);
             newBaseDesignData.add(obj);
-            // Log.d("desc+++++++++++++++++",obj.getDescription().getName());
+            Log.e("desxc",obj.getBaseDescription().getName());
 
         }
         return newBaseDesignData;
@@ -148,35 +174,67 @@ public class WarBase extends Fragment implements BaseDesignAdapter.ItemClickList
 
         //get mapid in shared prefrences
         ArrayList<Integer> mapIds;
-        SharedPreferences prefs = getContext().getSharedPreferences("MAP_IDS", Context.MODE_PRIVATE);
         ImageButton favourite=(ImageButton)itemView;
-        try {
-            mapIds = (ArrayList<Integer>) ObjectSerializer.deserialize(prefs.getString("mapIds", ObjectSerializer.serialize(new ArrayList<Integer>())));
-            Log.e("MSG", "Inside add" + mapIds + mapIds.contains(baseDesignModelList.get(position).getMapId()));
-            if(mapIds.isEmpty() || !mapIds.contains(baseDesignModelList.get(position).getMapId())){
-                //mapIds.add()
-                Log.e("MSG", "Inside add");
-                favourite.setImageResource(R.drawable.red_heart);
-                mapIds.add(baseDesignModelList.get(position).getMapId());
-
-            }
-            else{
-                Log.e("MSG", "Inside remove");
-                favourite.setImageResource(R.drawable.blank_heart);
-                mapIds.remove(baseDesignModelList.get(position).getMapId());
-
-            }
-            SharedPreferences.Editor editor = prefs.edit();
-            try {
-                editor.putString("mapIds", ObjectSerializer.serialize(mapIds));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            editor.commit();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+        mapIds=getAllMapIds();
+        if (mapIds != null) {
+            Log.e("Inside war base", "a:" + mapIds.size());
         }
+        if(mapIds==null || !mapIds.contains(baseDesignModelList.get(position).getMapId())){
+            if(mapIds==null)
+                mapIds=new ArrayList<>();
+            mapIds.add(baseDesignModelList.get(position).getMapId());
+            storeMapIdInPrefrencces(mapIds);
+            favourite.setImageResource(R.drawable.red_heart);
+            Log.e("Inside war base", "b");
+        }else{
+            mapIds.remove(baseDesignModelList.get(position).getMapId());
+            storeMapIdInPrefrencces(mapIds);
+            favourite.setImageResource(R.drawable.blank_heart);
+            Log.e("Inside war base", "c");
+        }
+    }
+
+    private ArrayList<Integer> getAllMapIds() {
+       // SharedPreferences prefs = getContext().getSharedPreferences("MAP_IDS", Context.MODE_PRIVATE);
+        SharedPreferences settings;
+        List<Integer> mapIds;
+
+        settings = getContext().getSharedPreferences(Resources.MAP_IDS,
+                Context.MODE_PRIVATE);
+
+        if (settings.contains(Resources.MAP_IDS_KEY)) {
+            String jsonMapIds = settings.getString(Resources.MAP_IDS_KEY, null);
+            Gson gson = new Gson();
+            Integer[] favoriteItems = gson.fromJson(jsonMapIds,
+                    Integer[].class);
+
+            mapIds = Arrays.asList(favoriteItems);
+            mapIds = new ArrayList<Integer>(mapIds);
+        } else
+            return null;
+
+        return (ArrayList<Integer>) mapIds;
+
+    }
+
+    private void storeMapIdInPrefrencces(ArrayList<Integer> mapIds){
+       // mapIds.add(mapid);
+        if (mapIds == null)
+            mapIds = new ArrayList<Integer>();
+
+        SharedPreferences settings;
+        SharedPreferences.Editor editor;
+
+        settings = getActivity().getSharedPreferences(Resources.MAP_IDS,
+                Context.MODE_PRIVATE);
+        editor = settings.edit();
+
+        Gson gson = new Gson();
+        String jsonMapIds= gson.toJson(mapIds);
+
+        editor.putString(Resources.MAP_IDS_KEY, jsonMapIds);
+
+        editor.commit();
+
     }
 }

@@ -16,12 +16,15 @@ import com.bumptech.glide.Glide;
 import com.example.vikaskumar.coccompleteguide.Models.BaseDesignModel;
 import com.example.vikaskumar.coccompleteguide.R;
 import com.example.vikaskumar.coccompleteguide.utility.ObjectSerializer;
+import com.example.vikaskumar.coccompleteguide.utility.Resources;
+import com.google.gson.Gson;
 import com.malinskiy.superrecyclerview.swipe.BaseSwipeAdapter;
 
 import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class BaseDesignAdapter extends BaseSwipeAdapter<BaseSwipeAdapter.BaseSwipeableViewHolder> {
@@ -56,26 +59,42 @@ public class BaseDesignAdapter extends BaseSwipeAdapter<BaseSwipeAdapter.BaseSwi
     public void onBindViewHolder(BaseSwipeableViewHolder holder, int position, List<Object> payLoads) {
         BaseDesignModel model = baseDesignModelList.get(position);
         Log.d("inside", model.getUrl());
+        int endIndex=model.getBaseDescription().getName().length()>20?20:model.getBaseDescription().getName().length();
+        mapName.setText(model.getBaseDescription().getName().substring(0,endIndex)+"...");
         Glide.with(context)
                 .load(model.getUrl())
                 .centerCrop() // scale to fill the ImageView and crop any extra
                 .into(mapImage);
-        ArrayList<Integer> mapIds;
-        SharedPreferences prefs = context.getSharedPreferences("MAP_IDS", Context.MODE_PRIVATE);
-        try {
-            mapIds = (ArrayList<Integer>) ObjectSerializer.deserialize(prefs.getString("mapIds", ObjectSerializer.serialize(new ArrayList<Integer>())));
-            if(mapIds.contains(baseDesignModelList.get(position).getMapId())){
+        ArrayList<Integer> mapIds=getAllMapIds();;
+
+            if(mapIds!=null && mapIds.contains(model.getMapId())){
+                Log.e("maoids:",model.getMapId()+"");
                 favouriteicon.setImageResource(R.drawable.red_heart);
 
             }
-
-        }catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
     }
+    private ArrayList<Integer> getAllMapIds() {
+        // SharedPreferences prefs = getContext().getSharedPreferences("MAP_IDS", Context.MODE_PRIVATE);
+        SharedPreferences settings;
+        List<Integer> mapIds;
 
+        settings = context.getSharedPreferences(Resources.MAP_IDS,
+                Context.MODE_PRIVATE);
+
+        if (settings.contains(Resources.MAP_IDS_KEY)) {
+            String jsonMapIds = settings.getString(Resources.MAP_IDS_KEY, null);
+            Gson gson = new Gson();
+            Integer[] favoriteItems = gson.fromJson(jsonMapIds,
+                    Integer[].class);
+
+            mapIds = Arrays.asList(favoriteItems);
+            mapIds = new ArrayList<Integer>(mapIds);
+        } else
+            return null;
+
+        return (ArrayList<Integer>) mapIds;
+
+    }
     @Override
     public int getItemCount() {
         return baseDesignModelList.size();
