@@ -5,16 +5,60 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HeroesActivity"
-    >
+    android:background="@drawable/background">
 
     <include layout="@layout/toolbar" />
     <include layout="@layout/header_view" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="120dp">
 
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/clipart_line"
+            android:layout_marginTop="15dp"/>
+
+
+        <ImageView
+            android:id="@+id/heroes_king"
+            android:layout_width="wrap_content"
+            android:layout_height="130dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/bt_heroes_king" />
+
+
+        <ImageView
+            android:id="@+id/heroes_queen"
+            android:layout_width="wrap_content"
+            android:layout_height="130dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/bt_heroes_queen" />
+
+        <ImageView
+            android:id="@+id/heroes_warden"
+            android:layout_width="wrap_content"
+            android:layout_height="130dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/bt_heroes_warden" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/clipart_line" />
 
     </LinearLayout>
 

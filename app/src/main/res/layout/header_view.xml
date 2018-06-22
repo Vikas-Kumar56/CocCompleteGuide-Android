@@ -18,6 +18,6 @@
         android:fontFamily="@font/berkshire_swash"
         android:text="Beginner Guide"
         android:textColor="@color/white"
-        android:textSize="27dp"
+        android:textSize="27sp"
         android:textStyle="bold" />
 </RelativeLayout>

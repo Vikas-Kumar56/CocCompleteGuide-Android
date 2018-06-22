@@ -17,11 +17,13 @@ public class GridViewAdapter extends RecyclerView.Adapter {
     private List<String> gridTexts;
     private List<Integer> gridImages;
 
-    public GridViewAdapter(Context context, List<Integer> gridImages, List<String> gridTexts) {
+    private ItemClickListener itemClickListener;
+
+    public GridViewAdapter(Context context, List<Integer> gridImages, List<String> gridTexts, ItemClickListener itemClickListener) {
         this.context = context;
         this.gridImages = gridImages;
         this.gridTexts = gridTexts;
-
+        this.itemClickListener = itemClickListener;
     }
 
     @Override
@@ -48,14 +50,25 @@ public class GridViewAdapter extends RecyclerView.Adapter {
         private ImageView gridImage;
         private TextView gridText;
 
-        public GridViewItemHolder(View itemView) {
+        public GridViewItemHolder(final View itemView) {
             super(itemView);
             initViews(itemView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    itemClickListener.onItemClick(view);
+                }
+            });
         }
 
         private void initViews(View itemView) {
             gridImage = itemView.findViewById(R.id.grid_image);
             gridText = itemView.findViewById(R.id.grid_text);
+
         }
+    }
+
+    public interface ItemClickListener {
+        void onItemClick(View parentView);
     }
 }

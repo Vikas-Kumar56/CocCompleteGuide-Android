@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="beginner_guide_texts">
+        <item>Army</item>
+        <item>Builders</item>
+        <item>Clan Castle</item>
+        <item>Clan Games</item>
+        <item>Clan Wars</item>
+        <item>Clan</item>
+        <item>Defences</item>
+        <item>Leagues</item>
+        <item>Townhall</item>
+        <item>Heroes</item>
+        <item>Gems</item>
+        <item>Laboratory</item>
+        <item>Obstacles</item>
+    </string-array>
+
+    <integer-array name="beginner_guide_images">
+        <item>@drawable/pic_army</item>
+        <item>@drawable/pic_builder</item>
+        <item>@drawable/pic_army</item>
+        <item>@drawable/pic_army</item>
+        <item>@drawable/pic_army</item>
+        <item>@drawable/pic_army</item>
+        <item>@drawable/pic_army</item>
+        <item>@drawable/pic_army</item>
+        <item>@drawable/pic_army</item>
+        <item>@drawable/pic_army</item>
+        <item>@drawable/pic_army</item>
+        <item>@drawable/pic_army</item>
+        <item>@drawable/pic_army</item>
+
+    </integer-array>
+
+</resources>

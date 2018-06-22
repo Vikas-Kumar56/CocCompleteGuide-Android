@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.example.vikaskumar.coccompleteguide.BeginnersGuideActivity;
+import com.example.vikaskumar.coccompleteguide.CompleteGuideDisplayActivity;
+import com.example.vikaskumar.coccompleteguide.HeroesActivity;
 import com.example.vikaskumar.coccompleteguide.HomeBaseActivity;
 import com.example.vikaskumar.coccompleteguide.HomeBaseDesignActivity;
 
@@ -43,6 +45,22 @@ public class Navigator {
         Intent subAct = BeginnersGuideActivity.getCallingIntent(context);
         // This is the data where you want to send to target activity.
         subAct.putExtra("DATA", data);
+
+        context.startActivity(subAct);
+    }
+
+    public void navigateToHeroesActivity(Context context, String data) {
+        Intent subAct = HeroesActivity.getCallingIntent(context);
+        // This is the data where you want to send to target activity.
+        subAct.putExtra("DATA", data);
+        context.startActivity(subAct);
+    }
+
+    public void navigateToCompleteGuideActivity(Context context, String source, String description) {
+        Intent subAct = CompleteGuideDisplayActivity.getCallingIntent(context);
+        // This is the data where you want to send to target activity.
+        subAct.putExtra(Resources.SOURCE_TITLE_KEY, source);
+        subAct.putExtra(Resources.SOURCE_DESCRIPTION_KEY, description);
         context.startActivity(subAct);
     }
 }
