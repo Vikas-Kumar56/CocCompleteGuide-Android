@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.design.widget.TabLayout;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -88,6 +89,7 @@ public class HomeBaseDesignActivity extends AppCompatActivity {
     }
 
     private void InitTabSettings() {
+        //Typeface font = ResourcesCompat.getFont(this, R.font.aclonica_font_family);
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
 
             TabLayout.Tab tab = tabLayout.getTabAt(i);
@@ -102,6 +104,7 @@ public class HomeBaseDesignActivity extends AppCompatActivity {
                 tabTextView.setText(tab.getText());
                 tabTextView.setTextSize(17);
                 tabTextView.setTextColor(getResources().getColor(R.color.white));
+                //tabTextView.setTypeface(font);
                 // First tab is the selected tab, so if i==0 then set BOLD typeface
                 if (i == 0) {
                     tabTextView.setTypeface(null, Typeface.BOLD);
