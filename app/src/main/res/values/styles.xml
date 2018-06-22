@@ -20,4 +20,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="PopupMenu" parent="android:Widget.Holo.Light.ListPopupWindow">
+        <item name="android:popupBackground">#21B6A8</item>
+    </style>
+
 </resources>

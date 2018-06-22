@@ -2,19 +2,34 @@ package com.example.vikaskumar.coccompleteguide.Fragments;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.GlideBitmapDrawable;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
 import com.example.vikaskumar.coccompleteguide.Models.BaseDesignModel;
 import com.example.vikaskumar.coccompleteguide.Models.DescriptionModel;
 import com.example.vikaskumar.coccompleteguide.R;
@@ -30,10 +45,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.ExecutionException;
 import java.util.zip.Inflater;
 
 import retrofit2.Call;
@@ -49,7 +69,8 @@ public class WarBase extends Fragment implements BaseDesignAdapter.ItemClickList
     private BaseDesignAdapter adpter;
     int page = 1;
     private List<BaseDesignModel> baseDesignModelList = new ArrayList<BaseDesignModel>();
-
+    private PopupMenu popupMenu;
+    private FloatingActionButton townhallPopMenuShow;
     public WarBase() {
         // Required empty public constructor
     }
@@ -73,7 +94,9 @@ public class WarBase extends Fragment implements BaseDesignAdapter.ItemClickList
         return view;
     }
 
+
     private void initView(View view) {
+        townhallPopMenuShow=(FloatingActionButton)view.findViewById(R.id.townhallSelection);
         recyclerView = (SuperRecyclerView) view.findViewById(R.id.base_design);
 
         adpter = new BaseDesignAdapter(baseDesignModelList, getContext(), this);
@@ -89,6 +112,17 @@ public class WarBase extends Fragment implements BaseDesignAdapter.ItemClickList
                 initData();
             }
         }, 1);
+
+        townhallPopMenuShow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                popupMenu = new PopupMenu(getContext(), view);
+                popupMenu.setOnDismissListener(new OnDismissListener());
+                popupMenu.setOnMenuItemClickListener(new OnMenuItemClickListener());
+                popupMenu.inflate(R.layout.townhall_menu);
+                popupMenu.show();
+            }
+        });
     }
 
     private void initData() {
@@ -162,11 +196,52 @@ public class WarBase extends Fragment implements BaseDesignAdapter.ItemClickList
     }
 
     @Override
-    public void onDownloadClick(View itemView,View parentView) {
+    public void onDownloadClick(View itemView, final View parentView) {
+      //downoad map image on disk
+        Log.e("inside download","a");
+        Toast.makeText(getContext(), "downloading started ...",Toast.LENGTH_LONG).show();
+        int position = recyclerView.getRecyclerView().getChildLayoutPosition(parentView);
+        final int ImageId=baseDesignModelList.get(position).getMapId();
+        String url=baseDesignModelList.get(position).getUrl();
+        Glide.with(getContext())
+                    .load(url)
+                    .asBitmap()
+                    .into(new SimpleTarget<Bitmap>() {
+                              @Override
+                              public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                                  Log.e("inside download","a"+resource);
 
-
+                                  saveImage(resource,ImageId);
+                              }
+                          });
 
     }
+
+    private void saveImage(Bitmap bitMapImg,int imageId) {
+        Log.e("inside download","ab");
+
+        File filename;
+        try {
+            String path = Environment.getExternalStorageDirectory().toString();
+            int random=(new Random()).nextInt(120000)+100000;
+            //new File(path + "/BaseMaps").mkdirs();
+            filename = new File(path + "/Download/map_"+imageId+"_"+random+".jpg");
+
+            FileOutputStream out = new FileOutputStream(filename);
+
+            bitMapImg.compress(Bitmap.CompressFormat.JPEG, 90, out);
+            out.flush();
+            out.close();
+
+            MediaStore.Images.Media.insertImage(getActivity().getContentResolver(), filename.getAbsolutePath(), filename.getName(), filename.getName());
+
+            Toast.makeText(getContext(), "File is Saved in  " + filename,Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
     @Override
     public void onFavoriteClick(View itemView,View parentView) {
@@ -187,7 +262,7 @@ public class WarBase extends Fragment implements BaseDesignAdapter.ItemClickList
             favourite.setImageResource(R.drawable.red_heart);
             Log.e("Inside war base", "b");
         }else{
-            mapIds.remove(baseDesignModelList.get(position).getMapId());
+            mapIds.remove((Object)baseDesignModelList.get(position).getMapId());
             storeMapIdInPrefrencces(mapIds);
             favourite.setImageResource(R.drawable.blank_heart);
             Log.e("Inside war base", "c");
@@ -236,5 +311,62 @@ public class WarBase extends Fragment implements BaseDesignAdapter.ItemClickList
 
         editor.commit();
 
+    }
+
+    //intialization of pop menu
+    private class OnDismissListener implements PopupMenu.OnDismissListener {
+
+        @Override
+        public void onDismiss(PopupMenu menu) {
+            // TODO Auto-generated method stub
+            Toast.makeText(getContext(), "Popup Menu is dismissed",
+                    Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    private class OnMenuItemClickListener implements
+            PopupMenu.OnMenuItemClickListener {
+
+        @Override
+        public boolean onMenuItemClick(MenuItem item) {
+            // TODO Auto-generated method stub
+            switch (item.getItemId()) {
+                case R.id.townhall5:
+                    Toast.makeText(getContext(), "Java got clicked",
+                            Toast.LENGTH_SHORT).show();
+                    return true;
+                case R.id.townhall6:
+                    Toast.makeText(getContext(), "Android got clicked",
+                            Toast.LENGTH_SHORT).show();
+                    return true;
+                case R.id.townhall7:
+                    Toast.makeText(getContext(), "Python got clicked",
+                            Toast.LENGTH_SHORT).show();
+                    return true;
+                case R.id.townhall8:
+                    Toast.makeText(getContext(), "Ruby got clicked",
+                            Toast.LENGTH_SHORT).show();
+                    return true;
+                case R.id.townhall9:
+                    Toast.makeText(getContext(), "Ruby got clicked",
+                            Toast.LENGTH_SHORT).show();
+                    return true;
+                case R.id.townhall10:
+                    Toast.makeText(getContext(), "Ruby got clicked",
+                            Toast.LENGTH_SHORT).show();
+                    return true;
+                case R.id.townhall11:
+                    Toast.makeText(getContext(), "Ruby got clicked",
+                            Toast.LENGTH_SHORT).show();
+                    return true;
+                case R.id.townhall12:
+                    Toast.makeText(getContext(), "Ruby got clicked",
+                            Toast.LENGTH_SHORT).show();
+                    return true;
+
+            }
+            return false;
+        }
     }
 }

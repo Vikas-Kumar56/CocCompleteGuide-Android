@@ -1,0 +1,50 @@
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="200dp"
+    android:layout_width="170dp"
+    tools:context=".HomeBaseDesignActivity" >
+
+    <item
+        android:id="@+id/townhall5"
+        android:showAsAction="ifRoom|withText"
+        android:title="Townhall 5"
+        android:icon="@android:drawable/ic_popup_sync"
+        android:visible="true"/>
+    <item
+        android:id="@+id/townhall6"
+        android:showAsAction="ifRoom|withText"
+        android:title="Townhall 6"
+        android:visible="true"/>
+    <item
+        android:id="@+id/townhall7"
+        android:showAsAction="ifRoom|withText"
+        android:title="Townhall 8"
+        android:visible="true"/>
+    <item
+        android:id="@+id/townhall8"
+        android:showAsAction="ifRoom|withText"
+        android:title="Townhall 8"
+        android:visible="true"/>
+    <item
+        android:id="@+id/townhall9"
+        android:showAsAction="ifRoom|withText"
+        android:title="Townhall 9"
+        android:visible="true"/>
+    <item
+        android:id="@+id/townhall10"
+        android:showAsAction="ifRoom|withText"
+        android:title="Townhall 10"
+        android:visible="true"/>
+    <item
+        android:id="@+id/townhall11"
+        android:showAsAction="ifRoom|withText"
+        android:title="Townhall 11"
+        android:visible="true"/>
+    <item
+        android:id="@+id/townhall12"
+        android:showAsAction="ifRoom|withText"
+        android:title="Townhall 12"
+        android:visible="true"/>
+
+</menu>
