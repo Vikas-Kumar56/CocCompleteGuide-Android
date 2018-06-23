@@ -20,17 +20,41 @@
     <integer-array name="beginner_guide_images">
         <item>@drawable/pic_army</item>
         <item>@drawable/pic_builder</item>
+        <item>@drawable/pic_clan_castle</item>
+        <item>@drawable/pic_clan_games</item>
         <item>@drawable/pic_army</item>
-        <item>@drawable/pic_army</item>
-        <item>@drawable/pic_army</item>
-        <item>@drawable/pic_army</item>
-        <item>@drawable/pic_army</item>
-        <item>@drawable/pic_army</item>
-        <item>@drawable/pic_army</item>
-        <item>@drawable/pic_army</item>
-        <item>@drawable/pic_army</item>
-        <item>@drawable/pic_army</item>
-        <item>@drawable/pic_army</item>
+        <item>@drawable/pic_builder</item>
+        <item>@drawable/pic_defenses</item>
+        <item>@drawable/pic_leagues</item>
+        <item>@drawable/pic_townhall</item>
+        <item>@drawable/pic_hero</item>
+        <item>@drawable/pic_gems</item>
+        <item>@drawable/pic_laboratory</item>
+        <item>@drawable/pic_obstacles</item>
+
+    </integer-array>
+
+    <integer-array name="defenses_images">
+        <item>@drawable/bt_defenses_airbomb</item>
+        <item>@drawable/bt_defenses_airdefense</item>
+        <item>@drawable/bt_defenses_airsweeper</item>
+        <item>@drawable/bt_defenses_archertower</item>
+        <item>@drawable/bt_defenses_bomb</item>
+        <item>@drawable/bt_defenses_bombtower</item>
+        <item>@drawable/bt_defenses_cannon</item>
+        <item>@drawable/bt_defenses_eagleartillery</item>
+        <item>@drawable/bt_defenses_giantbomb</item>
+        <item>@drawable/bt_defenses_hiddentesla</item>
+        <item>@drawable/bt_defenses_infernotower</item>
+        <item>@drawable/bt_defenses_mortar</item>
+        <item>@drawable/bt_defenses_pumpkinbomb</item>
+        <item>@drawable/bt_defenses_seekingairmine</item>
+        <item>@drawable/bt_defenses_skeletontrap</item>
+        <item>@drawable/bt_defenses_springtrap</item>
+        <item>@drawable/bt_defenses_walls</item>
+        <item>@drawable/bt_defenses_wizardtower</item>
+        <item>@drawable/bt_defenses_xbow</item>
+
 
     </integer-array>
 

@@ -2,6 +2,7 @@ package com.example.vikaskumar.coccompleteguide;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -54,6 +55,13 @@ public class BeginnersGuideActivity extends AppCompatActivity implements GridVie
     }
 
     private void initData() {
+        TypedArray typedArray = getResources().obtainTypedArray(R.array.beginner_guide_images);
+        int length = typedArray.length();
+        gridImages = new ArrayList<>();
+        for(int i = 0; i < length; i++) {
+            gridImages.add(typedArray.getResourceId(i, 0));
+        }
+
         gridTexts = new ArrayList<>(Arrays.asList(this.getResources().getStringArray(R.array.beginner_guide_texts)));
     }
 
@@ -71,7 +79,10 @@ public class BeginnersGuideActivity extends AppCompatActivity implements GridVie
     public void onItemClick(View parentView) {
         int position = gridItems.getChildLayoutPosition(parentView);
         switch (position) {
-            case 0:break;
+            case 0:Navigator.getInstance().navigateToArmyActivity(this, "");break;
+            case 1: Navigator.getInstance().navigateToCompleteGuideActivity(this, "Builder", getResources().getString(R.string.builder_description));
+            case 2:break;
+            case 6: Navigator.getInstance().navigateToGridImagesViewActivity(this, "Beginner's Guide", "Defenses");break;
             case 9:
                 Navigator.getInstance().navigateToHeroesActivity(this, "");break;
         }

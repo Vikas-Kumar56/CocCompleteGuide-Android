@@ -3,8 +3,10 @@ package com.example.vikaskumar.coccompleteguide.utility;
 import android.content.Context;
 import android.content.Intent;
 
+import com.example.vikaskumar.coccompleteguide.ArmyActivity;
 import com.example.vikaskumar.coccompleteguide.BeginnersGuideActivity;
 import com.example.vikaskumar.coccompleteguide.CompleteGuideDisplayActivity;
+import com.example.vikaskumar.coccompleteguide.GridImageViewActivity;
 import com.example.vikaskumar.coccompleteguide.HeroesActivity;
 import com.example.vikaskumar.coccompleteguide.HomeBaseActivity;
 import com.example.vikaskumar.coccompleteguide.HomeBaseDesignActivity;
@@ -59,8 +61,23 @@ public class Navigator {
     public void navigateToCompleteGuideActivity(Context context, String source, String description) {
         Intent subAct = CompleteGuideDisplayActivity.getCallingIntent(context);
         // This is the data where you want to send to target activity.
-        subAct.putExtra(Resources.SOURCE_TITLE_KEY, source);
+        subAct.putExtra(Resources.HEADER_TITLE_KEY, source);
         subAct.putExtra(Resources.SOURCE_DESCRIPTION_KEY, description);
+        context.startActivity(subAct);
+    }
+
+    public void navigateToArmyActivity(Context context, String data) {
+        Intent subAct = ArmyActivity.getCallingIntent(context);
+        // This is the data where you want to send to target activity.
+        subAct.putExtra("DATA", data);
+        context.startActivity(subAct);
+    }
+
+    public void navigateToGridImagesViewActivity(Context context, String tootlbarTitle, String headerTitle) {
+        Intent subAct = GridImageViewActivity.getCallingIntent(context);
+        // This is the data where you want to send to target activity.
+        subAct.putExtra(Resources.TOOLBAR_TITLE_KEY, tootlbarTitle);
+        subAct.putExtra(Resources.HEADER_TITLE_KEY, headerTitle);
         context.startActivity(subAct);
     }
 }

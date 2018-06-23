@@ -52,7 +52,7 @@ public class CompleteGuideDisplayActivity extends AppCompatActivity {
 
     private void initData() {
         Intent intent = getIntent();
-        headerTitle = intent.getStringExtra(Resources.SOURCE_TITLE_KEY);
+        headerTitle = intent.getStringExtra(Resources.HEADER_TITLE_KEY);
         description = intent.getStringExtra(Resources.SOURCE_DESCRIPTION_KEY);
     }
 

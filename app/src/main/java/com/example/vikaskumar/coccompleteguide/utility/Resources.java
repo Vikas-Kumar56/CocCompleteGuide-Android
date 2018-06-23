@@ -19,8 +19,9 @@ public class Resources {
 
     public static String homeBaseDesignToolBarText = "Base Design";
 
-    public static final String SOURCE_TITLE_KEY = "SOURCE_ACTIVITY_KEY";
+    public static final String HEADER_TITLE_KEY = "HEADER_ACTIVITY_KEY";
     public static final String SOURCE_DESCRIPTION_KEY = "SOURCE_DESCRIPTION_KEY";
+    public static final String TOOLBAR_TITLE_KEY = "TOOLBAR_TITLE_KEY";
 }
 
 

@@ -40,4 +40,28 @@ avdaaaaaaaaaaaaaaadaasasc\asa\n\nasaaaaaaaaaaaaaaaaaaaaaaaaaaaAsA\N\NASDASDASADA
 
     </string>
 
+    <string name="army_description_camp">
+
+    </string>
+
+    <string name="army_description_barracks">
+
+    </string>
+
+    <string name="army_description_dark_barracks">
+
+    </string>
+
+    <string name="builder_description">
+
+    </string>
+
+    <string name="clan_castle_description">
+
+    </string>
+
+    <string name="clan_games_description">
+
+    </string>
+
 </resources>

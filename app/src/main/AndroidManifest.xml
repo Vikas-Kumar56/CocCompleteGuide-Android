@@ -35,7 +35,9 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".HeroesActivity" />
-        <activity android:name=".CompleteGuideDisplayActivity"></activity>
+        <activity android:name=".CompleteGuideDisplayActivity" />
+        <activity android:name=".ArmyActivity" />
+        <activity android:name=".GridImageViewActivity"></activity>
     </application>
 
 </manifest>
