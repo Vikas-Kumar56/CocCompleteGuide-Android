@@ -1,23 +1,20 @@
 package com.example.vikaskumar.coccompleteguide;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.vikaskumar.coccompleteguide.adapters.GridImagesViewAdapter;
 import com.example.vikaskumar.coccompleteguide.utility.Resources;
 import com.malinskiy.superrecyclerview.SuperRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GridImageViewActivity extends AppCompatActivity implements GridImagesViewAdapter.GridImageClickListener {
+public class ClanWarsActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private TextView txtToolbarTitle;
@@ -32,11 +29,7 @@ public class GridImageViewActivity extends AppCompatActivity implements GridImag
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_grid_image_view);
-        initViews();
-        initData();
-        setUpViews();
-
+        setContentView(R.layout.activity_clan_wars);
     }
 
     private void initViews() {
@@ -61,32 +54,11 @@ public class GridImageViewActivity extends AppCompatActivity implements GridImag
         toolbarTitle = intent.getStringExtra(Resources.TOOLBAR_TITLE_KEY);
         headerTitle = intent.getStringExtra(Resources.HEADER_TITLE_KEY);
 
-        TypedArray typedArray = getResources().obtainTypedArray(R.array.defenses_images);
+        TypedArray typedArray = getResources().obtainTypedArray(R.array.clan_wares_images);
         int length = typedArray.length();
         gridImages = new ArrayList<>();
         for(int i = 0; i < length; i++) {
             gridImages.add(typedArray.getResourceId(i, 0));
-        }
-    }
-
-    private void setUpViews() {
-        txtToolbarTitle.setText(toolbarTitle);
-        txtHeaderTitle.setText(headerTitle);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
-        gridImageRecycler.setLayoutManager(gridLayoutManager);
-        GridImagesViewAdapter gridImagesViewAdapter = new GridImagesViewAdapter(this, gridImages, this);
-        gridImageRecycler.setAdapter(gridImagesViewAdapter);
-    }
-
-    public static Intent getCallingIntent(Context context) {
-        return new Intent(context, GridImageViewActivity.class);
-    }
-
-    @Override
-    public void onImageClick(View parentView) {
-        int position = gridImageRecycler.getRecyclerView().getChildLayoutPosition(parentView);
-        switch (position) {
-            case 0: break;
         }
     }
 }

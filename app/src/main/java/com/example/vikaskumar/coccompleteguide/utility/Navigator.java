@@ -6,7 +6,7 @@ import android.content.Intent;
 import com.example.vikaskumar.coccompleteguide.ArmyActivity;
 import com.example.vikaskumar.coccompleteguide.BeginnersGuideActivity;
 import com.example.vikaskumar.coccompleteguide.CompleteGuideDisplayActivity;
-import com.example.vikaskumar.coccompleteguide.GridImageViewActivity;
+import com.example.vikaskumar.coccompleteguide.DefensesActivity;
 import com.example.vikaskumar.coccompleteguide.HeroesActivity;
 import com.example.vikaskumar.coccompleteguide.HomeBaseActivity;
 import com.example.vikaskumar.coccompleteguide.HomeBaseDesignActivity;
@@ -73,8 +73,16 @@ public class Navigator {
         context.startActivity(subAct);
     }
 
-    public void navigateToGridImagesViewActivity(Context context, String tootlbarTitle, String headerTitle) {
-        Intent subAct = GridImageViewActivity.getCallingIntent(context);
+    public void navigateToDefensesActivity(Context context, String tootlbarTitle, String headerTitle) {
+        Intent subAct = DefensesActivity.getCallingIntent(context);
+        // This is the data where you want to send to target activity.
+        subAct.putExtra(Resources.TOOLBAR_TITLE_KEY, tootlbarTitle);
+        subAct.putExtra(Resources.HEADER_TITLE_KEY, headerTitle);
+        context.startActivity(subAct);
+    }
+
+    public void navigateToClanWarsActivity(Context context, String tootlbarTitle, String headerTitle) {
+        Intent subAct = DefensesActivity.getCallingIntent(context);
         // This is the data where you want to send to target activity.
         subAct.putExtra(Resources.TOOLBAR_TITLE_KEY, tootlbarTitle);
         subAct.putExtra(Resources.HEADER_TITLE_KEY, headerTitle);

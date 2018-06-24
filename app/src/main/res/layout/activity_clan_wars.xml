@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    tools:context=".DefensesActivity">
+    tools:context=".ClanWarsActivity">
 
     <include layout="@layout/toolbar" />
 
@@ -13,12 +12,12 @@
         layout="@layout/header_view" />
 
 
-        <com.malinskiy.superrecyclerview.SuperRecyclerView
-            android:id="@+id/grid_image_recycler"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            app:mainLayoutId="@layout/layout_recyclerview_verticalscroll"
-            android:paddingTop="80dp"/>
+    <com.malinskiy.superrecyclerview.SuperRecyclerView
+        android:id="@+id/grid_image_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:mainLayoutId="@layout/layout_recyclerview_verticalscroll"
+        android:paddingTop="80dp"/>
 
 </android.support.design.widget.CoordinatorLayout>

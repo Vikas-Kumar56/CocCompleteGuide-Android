@@ -64,4 +64,28 @@ avdaaaaaaaaaaaaaaadaasasc\asa\n\nasaaaaaaaaaaaaaaaaaaaaaaaaaaaAsA\N\NASDASDASADA
 
     </string>
 
+    <string name="clans_description">
+
+    </string>
+
+    <string name="leagues_description">
+
+    </string>
+
+    <string name="townhall_description">
+
+    </string>
+
+    <string name="gems_description">
+
+    </string>
+
+    <string name="laboratory_description">
+
+    </string>
+
+    <string name="obstacles_description">
+
+    </string>
+
 </resources>

@@ -58,4 +58,10 @@
 
     </integer-array>
 
+    <integer-array name="clan_wares_images">
+        <item>@drawable/bt_clanwar_overview</item>
+        <item>@drawable/bt_clanwar_day1</item>
+        <item>@drawable/bt_clanwar_day2</item>
+    </integer-array>
+
 </resources>
