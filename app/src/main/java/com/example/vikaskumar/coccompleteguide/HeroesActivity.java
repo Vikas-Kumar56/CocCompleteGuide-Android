@@ -63,8 +63,8 @@ public class HeroesActivity extends AppCompatActivity implements View.OnClickLis
         switch (id) {
             case R.id.heroes_king:
                 Navigator.getInstance().navigateToCompleteGuideActivity(this, "Barbarian King", getResources().getString(R.string.hero_description_king));break;
-            case R.id.heroes_queen: Navigator.getInstance().navigateToCompleteGuideActivity(this, "Barbarian Queen", getResources().getString(R.string.hero_description_king));break;
-            case R.id.heroes_warden: Navigator.getInstance().navigateToCompleteGuideActivity(this, "Barbarian Warden", getResources().getString(R.string.hero_description_king));break;
+            case R.id.heroes_queen: Navigator.getInstance().navigateToCompleteGuideActivity(this, "Barbarian Queen", getResources().getString(R.string.hero_description_queen));break;
+            case R.id.heroes_warden: Navigator.getInstance().navigateToCompleteGuideActivity(this, "Barbarian Warden", getResources().getString(R.string.hero_description_warden));break;
         }
     }
 }

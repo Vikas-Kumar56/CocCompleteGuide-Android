@@ -5,63 +5,190 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="hero_description_king">
-avdaaaaaaaaaaaaaaadaasasc\asa\n\nasaaaaaaaaaaaaaaaaaaaaaaaaaaaAsA\N\NASDASDASADAssdcsdcsdcd\n\njhvhdvsjdhvjhdvjhdvjhdvjsjbjshbhfjsdbfjshbdfjsdbfjdsfbsdhjfbsdjbfsdkjfbskfbskjbskjbfksdjfbksjfbskfbskbfskjfbskfnslknfslflsssdbfksjbks\nfgsdjfgbsdjfbsdjhfbsjhfbsdhjfbsdjfbsdjfbjsdfhsdkbfksdbf\n
-        sdbkfksjdfbskjdfbsdkfbsdkjfbksdfs\n
-        sdfbshjdfhbsdjfbjsdbf\n
-        sfdkbsdkfjsdbkfjsdbfkjsdbfkjsdfbsdfjksdbfksjfbsdkjf
-        jfhvsdjfhsvdjfsdjfsjfsjfsf\n
-        afvasfjhasvfjvkahjsgfkjabfkabfkasbdkjadbjka\n\n
-        avdaaaaaaaaaaaaaaadaasasc\asa\n\nasaaaaaaaaaaaaaaaaaaaaaaaaaaaAsA\N\NASDASDASADAssdcsdcsdcd\n\njhvhdvsjdhvjhdvjhdvjhdvjsjbjshbhfjsdbfjshbdfjsdbfjdsfbsdhjfbsdjbfsdkjfbskfbskjbskjbfksdjfbksjfbskfbskbfskjfbskfnslknfslflsssdbfksjbks\nfgsdjfgbsdjfbsdjhfbsjhfbsdhjfbsdjfbsdjfbjsdfhsdkbfksdbf\n
-        sdbkfksjdfbskjdfbsdkfbsdkjfbksdfs\n
-        sdfbshjdfhbsdjfbjsdbf\n
-        sfdkbsdkfjsdbkfjsdbfkjsdbfkjsdfbsdfjksdbfksjfbsdkjf
-        jfhvsdjfhsvdjfsdjfsjfsjfsf\n
-        afvasfjhasvfjvkahjsgfkjabfkabfkasbdkjadbjka
-        avdaaaaaaaaaaaaaaadaasasc\asa\n\nasaaaaaaaaaaaaaaaaaaaaaaaaaaaAsA\N\NASDASDASADAssdcsdcsdcd\n\njhvhdvsjdhvjhdvjhdvjhdvjsjbjshbhfjsdbfjshbdfjsdbfjdsfbsdhjfbsdjbfsdkjfbskfbskjbskjbfksdjfbksjfbskfbskbfskjfbskfnslknfslflsssdbfksjbks\nfgsdjfgbsdjfbsdjhfbsjhfbsdhjfbsdjfbsdjfbjsdfhsdkbfksdbf\n
-        sdbkfksjdfbskjdfbsdkfbsdkjfbksdfs\n
-        sdfbshjdfhbsdjfbjsdbf\n
-        sfdkbsdkfjsdbkfjsdbfkjsdbfkjsdfbsdfjksdbfksjfbsdkjf
-        jfhvsdjfhsvdjfsdjfsjfsjfsf\n
-        afvasfjhasvfjvkahjsgfkjabfkabfkasbdkjadbjka
-
-        \NASDASDASADAssdcsdcsdcd\n\njhvhdvsjdhvjhdvjhdvjhdvjsjbjshbhfjsdbfjshbdfjsdbfjdsfbsdhjfbsdjbfsdkjfbskfbskjbskjbfksdjfbksjfbskfbskbfskjfbskfnslknfslflsssdbfksjbks\nfgsdjfgbsdjfbsdjhfbsjhfbsdhjfbsdjfbsdjfbjsdfhsdkbfksdbf\n
-        sdbkfksjdfbskjdfbsdkfbsdkjfbksdfs\n
-        sdfbshjdfhbsdjfbjsdbf\n
-        sfdkbsdkfjsdbkfjsdbfkjsdbfkjsdfbsdfjksdbfksjfbsdkjf
-        jfhvsdjfhsvdjfsdjfsjfsjfsf\n
-        afvasfjhasvfjvkahjsgfkjabfkabfkasbdkjadbjka
+        About-\n
+        The Barbarian King is basically a larger, more aggressive, and more powerful Barbarian. He is automatically summoned once the Barbarian King Altar is constructed, which costs 10,000 Dark Elixir.\n
+        The Barbarian King is an immortal unit, so he only has to be summoned once. However, if he is injured or falls in battle, he must regenerate his health by sleeping for a period of time before he can be used again. If you attack a village while its Barbarian King is still regenerating, the Altar will be empty.\n
+        The amount of time he sleeps to regenerate is directly proportional to the health he has lost by the end of the battle. If he is not damaged (or is fully healed before the battle ends), then he is ready to fight immediately; however, if he falls in battle or is wounded, then he must sleep for some time to regenerate.\n
+        The more the Barbarian King is upgraded, the more time it will take to fully regenerate his health.\n
+        The Barbarian King has two modes when defending, "Guard" and "Sleep". In Guard, he will guard the village but will have to regenerate health (sleep) if he takes damage, while in Sleep mode he will not appear to your opponent.\n
+        On defense, the Barbarian King only defends his territory around his platform and will retreat if lured too far out.\n
+        Starting at level 5, the Barbarian King obtains an ability called Iron Fist which can be used on the battlefield. It partially heals him, summons up to 24 additional Barbarians, and grants the Barbarian King and his summoned Barbarians increased damage and speed. This does not stack with the Rage Spell, and does not affect any other troops, including other Barbarians belonging to the regular army. This ability gets more powerful every fifth level.\n
+        If the ability is unlocked, once the Barbarian King is deployed, his icon in the troop deployment window becomes the activation method for Iron Fist. Simply click on his icon again and Iron Fist will be activated.\n
+        The Barbarian King summons Barbarians equal to the level of your Barbarians researched in your Laboratory (e.g. if you can train level 5 Barbarians, the Barbarian King will summon Level 5 Barbarians).\n
+        Trivia-\n
+        The Barbarian King only holds his sword in his right hand when he is turned toward to the right sides of the village. When the King turns and faces to the left he is rendered in mirror image, causing his sword and gauntlet/shoulder guard to switch arms. This is done ostensibly to save graphics space.\n
+        Every slash he makes on a building or unit creates a mini explosion.\n
+        When you tap on him he will yell a low pitched battle cry and stand still for a moment, similar to the Archer Queen and the Grand Warden.\n
+        When the Barbarian King is completely healed, a jingle will play, like the Archer Queen and the Grand Warden.\n
+        When the Barbarian King falls in battle, an explosion occurs and a bright beam of light is sent up into the sky temporarily. He is then seen standing dazed with stars flying around his head for the remainder of the battle.\n
+        Each successive upgrade of the Barbarian King adds approximately 2.5% health and 2% damage, but also adds a constant one minute to his total regeneration time. As a consequence, the Barbarian King\'s regeneration rate changes as he levels up. Initially the Barbarian King\'s regeneration rate slows down each level, going from 170 hit points per minute at level 1 to 89.13 per minute at level 31. Beyond level 31 the rate begins to slowly climb again, eventually reaching 105.84 hit points per minute at level 60.\n
+        \t \tThe level n Barbarian King\'s has ⌊120∗1.02n−1⌋ DPS for levels 1-40 (however, level 41 and above has a slightly different formula, being ⌊120∗1.021n−1⌋ DPS), ⌊1700∗1.025n−1⌋ hitpoints, and takes n+9 minutes to regenerate.\n
+        While attacking, if your opponent\'s Barbarian King Altar is empty and the King wakes up during your battle, the Altar will sparkle like he is waking but there will be no Barbarian King to defend the base.\n
+        The Barbarian King will alternate between hitting the building with the sword and his fist. However, both types of strikes do equal damage.\n
+        The Barbarian King was also a part of the Town Hall Level 7 Starter Pack which came with the Barbarian King, a level 3 Hidden Tesla and 1,200 gems which cost $9.99.\n
     </string>
 
     <string name="hero_description_queen">
-
+        About-\n
+        The Archer Queen is basically a much more powerful version of the Archer. In addition to having more damage and hitpoints, the Archer Queen also shoots 1.5 tiles farther than a normal Archer (5 tiles instead of 3.5).\n
+        The Archer Queen shoots 3 rapid arrows per shot (they cannot affect multiple targets, however).\n
+        She is automatically summoned once the Archer Queen Altar is constructed, which costs 40,000 Dark Elixir.\n
+        The Archer Queen is an immortal unit so she only has to be summoned once. However, if she is injured or falls in battle, she must regenerate her health by sleeping for a period of time before she can be used again. If you attack a village while its Archer Queen is still regenerating, its Altar will be empty.\n
+        The amount of time she sleeps to regenerate is directly proportional to the health she has left at the end of the battle. If the Archer Queen is not damaged then she is ready to fight immediately; if she gets hit or falls in battle then she must sleep for some time to regenerate.\n
+        The more the Archer Queen is upgraded, the more time it will take to fully regenerate her health.\n
+        You can temporarily quadruple the hero\'s healing rate for 1 hour by spending 5 Gems.\n
+        In the January 29th 2014 update, the Archer Queen gained a new special ability: Royal Cloak. This ability allows her to become invisible to enemy defenses for a short period of time in addition to greatly increasing her damage, restoring some of her health, and summoning up to 12 Archers to aid her in battle. The Archer Queen gains this ability at Level 5 and it becomes more powerful every five subsequent levels.\n
+        The Archer Queen\'s Royal Cloak ability summons Archers of the same level that the player has researched in his or her Laboratory. For instance, if the player has researched level 5 Archers, the Archer Queen will summon level 5 Archers.\n
+        Unlike the Barbarian King, the Archer Queen can attack air units like Balloons, Dragons, or Minions, making her effective in guarding a village against players who conduct air raids.\n\n
+        Trivia-\n
+        If you tap on the Archer Queen, she will yell a high pitched battle cry and stand still for a moment, similar to the Barbarian King.\n
+        If the Archer Queen attacks while her Royal Cloak ability is active, her arrows change from their normal Elixir-like color to a bright orange.\n
+        When she is injured or falls in battle (either attack or defense), a small explosion occurs, she yells in pain, and a red beam shoots to the sky. After that, like all other heroes, the Archer Queen stands still and a "dizzy" animation is engaged.\n
+        The Archer Queen\'s upgrades, up to and including level 8, cost less than it does to initially summon her. She, along with the Grand Warden, are the only entities in the game that have more expensive purchase costs than upgrade costs.\n
+        While attacking, if your opponent\'s Archer Queen Altar is empty and the Archer Queen wakes up during the battle, the Altar will have a short sparkling animation but the Archer Queen will not appear to defend the base.\n
+        If your Archer Queen wakes up while you are in Village Edit Mode, a sparkle will appear wherever in the Altar\'s original location (even if you moved it already).\n
     </string>
 
     <string name="hero_description_warden">
+        About-\n
+        The Grand Warden is a single target unit unlocked at Town Hall level 11.\n
+        He is automatically summoned once the Grand Warden Altar is constructed, which costs 6,000,000 Elixir and is available at Town Hall 11.\n
+        He can be set to Air or Ground mode, which he flies in Air Mode and walks on Ground Mode.\n
+        However, he can fly over walls regardless of the mode, but will attack a wall piece if many other troops are attacking it.\n
+        The Grand Warden initiates a range of his passive Life Aura upon deployment, which grants units with additional health. Any unit to leave this range is stripped of the ability, unless they re-enter it.\n
+        The level of this passive ability is increased once every level.\n
+        The Grand Warden is the third hero in the game, being weak in physical strength but extremely powerful in support.\n
+        The Grand Warden\'s active ability, Eternal Tome, renders all friendly troops within his aura invincible to damage for a short time.\n
+        Eternal Tome is upgraded every five levels that the Warden increases. The ability\'s duration increases by 0.5 seconds per level.\n
+        The Eternal Tome ability negates damage, but not other effects. For instance, the Spring Trap will still be able to bounce troops.\n
+        During defensive mode, he will turn into a stone statue and act as any other defensive tower while using his Life Aura to provide a health boost to defending troops and Heroes.\n
+        The Grand Warden will attack the building being attacked by the highest number/troop space troop, and will continue to attack that building until it\'s destroyed.\n\n
+        Trvia-\n
+        The Grand Warden was initially revealed as the new hero for Town Hall 11 at ClashCon 2015. However, only a silhouette of him was shown.\n
+        In the sneak peeks showcasing him, his hitpoints at level 20 were 2,000; however it was changed to 1,500 in its release.\n
+        His beta ability colour was orange, but was later changed to yellow when released.\n
+        He is the only Home Village hero who has only 30 levels, unlike 60 levels for both the Barbarian King and Archer Queen.\n
+        He is the only troop in the game that can be changed as an air or ground unit.\n
+        He is also the only unit in the entire game that can behave as both a troop (attacking) and a building (defending). Thus, it\'s only possible to destroy his altar with a Lightning spell only if he is not guarding (and thus his altar will be empty.)\n
+        He is the only hero to have two abilities.\n
+        He is the only Home Village hero that doesn\'t summon a troop for the active ability.\n
+        He is the only hero being able to be killed single-handedly by a trap(When in air mode via Seeking Air Mine).\n
+        He is only hero in the Home Village available to be purchased and upgraded with Elixir and one of the two in the whole game, the other one being the Battle Machine.\n
 
     </string>
 
     <string name="army_description_camp">
+        About-\n
+        The Army Camp is where your troops go when they\'re done training. Most troops will take up more than one
+        space (Barbarians, Archers, and Goblins do only take up one space though).
+        Upgrading and building more Army Camps allow more troops to be stored, allowing higher chances of victory in raids.\n\n
+        Trivia-\n
+        The Army Camp takes up a 5x5 space, making it one of the largest structures in the game.\n
+        Certain troops have reactions when the Army Camp is tapped. For example, Barbarians raise their swords,
+        Archers pump their fists in the air and Minions sneeze.\n
+        When you move your Army Camp, any Troops there will wait until it is placed in its new position, at which time
+        they will move towards the place where you put it.\n
+        When a Troop finishes training, smoke appears in the Army Camp that the Troop will go to.\n
+        The housing spaces of Army Camps are calculated jointly rather than individually. For example, a player who has
+        4 level 6 Army Camps will be able to hold 10 Dragons even though each individual Army Camp has 50 housing spaces.
+        As a result, two of the four Army Camps will appear to hold 3 Dragons that it can\'t hold individually.\n
 
     </string>
 
     <string name="army_description_barracks">
+        About-\n
+        Barracks allow you to train Troops using Elixir. These troops after being trained will be stationed in Army Camps.Barracks are unable to function while being upgraded, considerably increasing the time it takes to train your armies; this should be taken into consideration when deciding to upgrade one of your Barracks.
+        Once you have queued Troops in your Barracks, you can instantly complete their training with Gems; the amount required is directly proportional to the amount of time remaining to finish training normally.
+        There is also an option to boost Troop production for an hour. The boost option costs 30 Gems and will increase the training speed of all troops by a factor of 4.\n
+        Note: The boost timer will continue to count down even if you aren\'t making troops, so don\'t boost your Barracks until you are ready to use it.\n\n
+        Trivia-\n
+        Barracks emit a warm glow of light while training Troops.\n
+        If one of your Barracks is upgraded while training Troops, the Troops being trained in those barracks cannot be finished until after the
+        upgrade! The Elixir you spent to queue them will be unavailable as well, as the Troops cannot be un-queued until that time, either.\n
+        Newly trained Troops walk through Walls to get to their assigned Army Camp. This only occurs if either your Barracks or your Army Camp is surrounded by Walls with no openings.\n
+        If you have any Troops queued up inside a Barracks while is it being upgraded, they will not count toward the "Troop capacity after training" calculation until the upgrade finishes.\n
+        If a Troop upgrade finishes in your Laboratory while you have that particular Troop type queued in your Barracks, the units within that queue will be produced at the newly upgraded level, even though they were queued at the previous level\'s cost. This holds true even if you un-queue the Troops without producing them; you will be credited the newly upgraded Troop cost in Elixir. Many players take advantage of this by filling their Barracks queues with Troops that are about to be upgraded, un-queuing them after the upgrade finishes and pocketing some free Elixir.
 
     </string>
 
     <string name="army_description_dark_barracks">
-
+        About-\n
+        Dark Barracks allow you to train Dark Elixir Troops using Dark Elixir. These troops will be stationed in Army Camps.\n
+        The Dark Barracks functions identically to the normal Barracks, except for the fact that it uses Dark Elixir instead of Elixir.\n
+        Dark Barracks are unable to function while being upgraded, considerably increasing the time it takes to train your armies; this should be taken into consideration when deciding to upgrade a Dark Barracks. Any Troops that are queued up inside will start training when the upgrade has been finished.\n
+        Once you have queued Troops in your Dark Barracks, you can instantly complete their training with Gems; the amount required is directly proportional to the amount of time remaining to finish training normally.\n\n
+        Trivia-\n
+        If your Dark Barracks is upgraded while training Dark Troops, the Troops cannot be finished until after the upgrade! The Dark Elixir you spent to queue them will be unavailable as well, as the Troops cannot be un-queued until that time, either.\n
+        Newly trained Troops from the Dark Barracks can jump over Walls to get to their assigned Army Camp, unlike the normal Barracks.\n
+        If a Troop upgrade finishes in your Laboratory while you have that particular Troop type queued in your Dark Barracks, the units within that queue will be produced at the newly upgraded level, even though they were queued at the previous level\'s cost. This holds true even if you un-queue the Troops without producing them; you will be credited the newly upgraded Troop cost in Dark Elixir. Many players take advantage of this by filling their Dark Barracks queues with Troops that are about to be upgraded, un-queuing them after the upgrade finishes and pocketing some free Dark Elixir.\n
+        Instead of a pair of crossed swords like the normal Barracks, the Dark Barracks has on its roof a crossed warhammer and battleaxe (used by the Hog Rider and Valkyrie, respectively). This is also similar to the Builder\'s Huts\' hammer and saw.\n
+        Although the level 6 Dark Barracks has a lava theme, it is unlocked at Town Hall level 9 rather than level 10. This makes the Dark Barracks have two levels on each of Town Hall levels 7, 8 and 9 like the Dark Elixir Storage, which also uses Elixir to upgrade and deals with Dark Elixir.\n
+        The level 1 Dark Barracks had a stone base during the 2014 Winter Update alongside a rack containing a hammer and its cauldron, but has since been reverted.
+        Every single Dark Barrack troop is in Clash Royale.\n
     </string>
 
     <string name="builder_description">
-
+        About-\n
+        Builders are the workers that live inside the Builder\'s Hut.\n
+        They can upgrade, build, and rebuild structures, as well as upgrade your Heroes.\n
+        You do not need a Builder to add Decorations or Traps, but you need a Builder to upgrade Walls.\n
+        They can also remove Obstacles such as trees, rocks, bushes, etc.\n
+        One Builder can work on a building at a time.\n
+        Clicking on the Builder icon shows what upgrades they\'re currently doing, and also shows a selection of suggested builds and upgrades. Clicking on an upgrade shows the location of the structure.\n
+        If you tap the "+" icon on the Builder interface, you will be taken to the shop where you can then purchase Builder\'s Huts. However, this does not appear if you already have 5 builders.\n
+        Trivia-\n
+        When a builder is inactive, three small z\'s will appear from the roof of his house after regular time intervals, signaling that the builder is resting and is available to be assigned to an upgrade.\n
+        If you move an inactive builder\'s hut but not place it, you will find the builder lying on the ground with his hammer on his belly.\n
+        When the Builder is running, it moves as fast as a Goblin, and when walking, it moves as fast as a Barbarian.\n
+        The Builder does not always go to the same Builder\'s Hut it came out of.\n
+        If the player moves an inactive Builder\'s Hut, a Builder will be seen lying down on the spot where the hut used to be (but not actually sleeping). In older versions, the Builder was not seen lying down when the hut is moved; instead, there was be a dark spot of the Builder\'s shadow.\n
+        Two builders can be seen in the Fort Knobs village in Single Player Campaign.\n
+        If a Builder\'s Hut is placed on another building and you go to Village Edit Mode before it moves automatically, then hit edit on your active village, then hit cancel, then exit edit mode, the builder will appear to sleep outside of its hut.
+        The appearance of the Builder is similar to that of a Miner.\n
+        On 4/8/17, the Builders appeared to have left the Home Village, leaving a note on their Builder\'s Huts. Their role was first replaced by Barbarians to represent the Battle Ram in the Battle Ram Event; even the Builder icon changed to reflect this. It ended on August 11 and the Barbarians were replaced by Giants.\n
     </string>
 
     <string name="clan_castle_description">
-
+        About- \n
+        A Clan Castle is needed for creating or joining a Clan. It houses troops which can either be placed as reinforcements during an attack, or used as defenders when the player\'s base is under attack.\n
+        Starting at level 4, you can request for one housing space\'s worth of Spells to your clan mates; level 7 Clan Castles or higher allows you to hold two housing space worth of spells.\n
+        Starting at level 6, you can request for Siege Machines from your clan mates.\n
+        Players begin the game with a ruined Clan Castle. While it is in ruins, it is surrounded by obstacles (plants and stones) and cannot be moved. Rebuilding a Clan Castle requires 10,000 Gold but does not require a free Builder and its reconstruction happens instantly. Once it is rebuilt, players are able to create a Clan or join an existing one. The Clan Castle can also be moved once it is rebuilt (you do not need to join a Clan first or remove any surrounding obstacles).\n
+        Once players join a Clan, they have the ability to "Request Troops" once every 20 minutes (or faster if the clan has a "Troop Request Wait Time" perk or if they use Request now by using some Gems). Also, players can add a message to tell other players what troops they would like. Other Clan members will see the request in the Clan Chat window and can donate a certain maximum number of troops to the Clan Castle (depending on the clan level). Players can use these reinforcements during battle, and they will also defend the base when the player is offline.\n
+        Players receive experience points for each troop they donate. 1 experience point is earned for every housing space of troops donated; for example, donating 1 Archer earns 1 experience point whereas a Giant will earn 5 experience points and a Dragon 20 experience points. Players can normally donate a maximum of 5 troops per request, though up to 8 can be donated in a higher level Clan with the "Donation Limit" perk. Every housing unit of troops donated counts towards the "Friend in Need" achievement.\n
+        Dark Spells can be donated to Clan Castles level 4 and above, and 2-space Elixir Spells can be donated to level 7 Clan Castles. Players receive 5 Experience for each housing space of spells donated; so each Dark Spell yields 5 Experience, while 10 Experience is gained for each 2-space Elixir Spell donated. Each Spell donated will count towards the Sharing is Caring achievement.\n
+        The Clan Castle is home to the Treasury, which receives loot earned from Star Bonuses, Clan Wars and Clan Games. This replaces the previous War Loot storage space, and is not dependent on the actual level of the Clan Castle itself. Attackers can only steal a very small percentage (3%) of the loot stored within the Treasury.\n\n
+        Trivia-\n
+        When clanmates donate troops, they march into your Clan Castle from the Clan Path located on one edge of the clearing. When you donate troops to your clanmates, they march from your Army Camps to the Clan Path and disappear.\n
+        Troops leave the Clan Castle in the order in which they were donated.\n
+        Prior to the June 2017 update, troops left the Clan Castle in the order: Barbarians, Archers, Goblins, Giants, Wall Breakers, Balloons, Wizards, Healers, Dragons, P.E.K.K.As, Baby Dragons, Miners, Minions, Hog Riders, Valkyries, Golems, Witches, Lava Hounds, Bowlers, and also left from lowest to highest level.\n
+        Donated troops walk through walls to get to your Clan Castle, rather than jumping over them, except air troops.\n
+        When the Winter 2012 update came, Supercell had to raise the hitpoints of the Clan Castle because people were destroying it with the Santa\'s Surprise spell before it could deploy any troops.\n
+        If a rebuilt Clan Castle is destroyed in a raid, it will exactly resemble the original Clan Castle ruins.\n
+        The Clan Castle ruin is repairable at Town Hall level 3 through regular gameplay. It is not available at earlier Town Hall levels, even with Gems, as it is impossible to construct and upgrade Gold Storages to accommodate the needed amount until Town Hall level 3.\n
+        However, by using real-world money to purchase a resource pack at Town Hall level 2 (which allows players to overfill their storages), it is possible to obtain the necessary Gold to rebuild the Clan Castle at Town Hall level 2.\n
+        Prior to the 16 September 2014 update, you were not able to dismiss individual troops that you did not want, instead you had to use them in an attack and possibly losing select troops you did prefer.\n
+        The "full" bubble will normally show if your Clan Castle is full of troops, but it will not show if you are not in a clan.\n
+        While being upgraded, the countdown timer for the next troop request will be hidden by the countdown timer for the upgrade.\n
+        The bubble shows Treasury icon if your Clan Castle is full of resources.\n
+        The Clan Castle used to cost 40,000 Gold to rebuild, later reduced to 10,000, which made it much easier to rebuild at Town Hall 3.\n
+        If the Clan Castle finished upgrading during preparation day it will still have the previous level capacity in the war map although when scouting the base it\'ll seem on its normal level with bigger capacity.\n
     </string>
 
     <string name="clan_games_description">
-
+        About-\n
+        Clan Games are a type of event introduced in the December 2017 update.\n
+        These Games introduce in-game tasks and challenges for the whole clan to try to complete.\n
+        Clan Games are only available to players with Town Hall 6 and above.\n\n
+        Gameplay-\n
+        Clan Games occur whenever the Strongman\'s Caravan is set up at the side of your village. When the caravan is interacted with, it will show the Clan Challenges available to the Clan.\n
+        These Challenges give the players several different types of tasks to accomplish within an allotted time, such as destroying certain buildings or using certain troops. These tasks can involve either the Home Village or Builder Base. Builder Base Challenges have a different frame, that is darker with stars.\n
+        The list of Challenges available to a Clan are the same for all members. Therefore, it will be in a clan\'s best interest to determine which members are best for which Challenges.\n
+        Once Challenges are taken up by a member, new ones appear in their place, so a clan can never run out of Challenges to take on.\n
+        Each Challenge has a point reward. Longer or harder Challenges will yield higher amounts of points.\n
+        Collecting a certain number of points will unlock rewards. These rewards range from resources (including Gems) to Magic Items.\n
+        During certain Clan Games, some Challenges can reward higher points than usual. These higher points are highlighted in golden color.\n
+        While Clan Games are ongoing, players within the clan can compare their point contributions to one another by looking at the "Clan" tab.\n
     </string>
 
     <string name="clans_description">
