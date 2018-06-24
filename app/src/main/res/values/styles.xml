@@ -18,10 +18,23 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:popupMenuStyle">@style/PopupMenu</item>
+        <item name="popupMenuStyle">@style/PopupMenu</item>
+        <item name="android:itemTextAppearance">@style/itemTextStyle.AppTheme</item>
+
     </style>
 
-    <style name="PopupMenu" parent="android:Widget.Holo.Light.ListPopupWindow">
-        <item name="android:popupBackground">#21B6A8</item>
+    <style name="PopupMenu" parent="@android:style/Widget.PopupMenu">
+        <item name="android:popupBackground">#B4B52B</item>
+        <item name="android:itemPadding">25dp</item>
+        <item name="android:listPreferredItemHeightSmall">70dp</item>
+
     </style>
+
+    <style name="itemTextStyle.AppTheme" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
 
 </resources>

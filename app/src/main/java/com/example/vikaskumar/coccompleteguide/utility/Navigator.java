@@ -10,6 +10,7 @@ import com.example.vikaskumar.coccompleteguide.DefensesActivity;
 import com.example.vikaskumar.coccompleteguide.HeroesActivity;
 import com.example.vikaskumar.coccompleteguide.HomeBaseActivity;
 import com.example.vikaskumar.coccompleteguide.HomeBaseDesignActivity;
+import com.example.vikaskumar.coccompleteguide.MapDescriptionActivity;
 
 public class Navigator {
 
@@ -86,6 +87,13 @@ public class Navigator {
         // This is the data where you want to send to target activity.
         subAct.putExtra(Resources.TOOLBAR_TITLE_KEY, tootlbarTitle);
         subAct.putExtra(Resources.HEADER_TITLE_KEY, headerTitle);
+        context.startActivity(subAct);
+    }
+
+    public void navigateToMapDescriptionActivity(Context context, String data) {
+        Intent subAct = MapDescriptionActivity.getCallingIntent(context);
+        // This is the data where you want to send to target activity.
+        subAct.putExtra("DATA", data);
         context.startActivity(subAct);
     }
 }

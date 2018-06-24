@@ -39,6 +39,7 @@
         <activity android:name=".ArmyActivity" />
         <activity android:name=".DefensesActivity" />
         <activity android:name=".ClanWarsActivity"></activity>
+        <activity android:name=".MapDescriptionActivity"></activity>
     </application>
 
 </manifest>

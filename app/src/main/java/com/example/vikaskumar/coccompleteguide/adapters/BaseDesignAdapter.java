@@ -2,6 +2,7 @@ package com.example.vikaskumar.coccompleteguide.adapters;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.PorterDuff;
 import android.media.Image;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -26,6 +27,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static android.os.Build.VERSION_CODES.M;
 
 public class BaseDesignAdapter extends BaseSwipeAdapter<BaseSwipeAdapter.BaseSwipeableViewHolder> {
 
@@ -61,10 +64,14 @@ public class BaseDesignAdapter extends BaseSwipeAdapter<BaseSwipeAdapter.BaseSwi
         Log.d("inside", model.getUrl());
         int endIndex=model.getBaseDescription().getName().length()>20?20:model.getBaseDescription().getName().length();
         mapName.setText(model.getBaseDescription().getName().substring(0,endIndex)+"...");
-        Glide.with(context)
-                .load(model.getUrl())
-                .centerCrop() // scale to fill the ImageView and crop any extra
-                .into(mapImage);
+        favouriteicon=holder.itemView.findViewById(R.id.favouriteIcon);
+        if(!model.getUrl().isEmpty()) {
+            mapImage=holder.itemView.findViewById(R.id.mapPic);
+            Glide.with(context)
+                    .load(model.getUrl())
+                    .centerCrop() // scale to fill the ImageView and crop any extra
+                    .into(mapImage);
+        }
         ArrayList<Integer> mapIds=getAllMapIds();;
 
             if(mapIds!=null && mapIds.contains(model.getMapId())){
@@ -118,6 +125,7 @@ public class BaseDesignAdapter extends BaseSwipeAdapter<BaseSwipeAdapter.BaseSwi
         mapImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                itemClickListener.onItemClicked(parentView);
             }
         });
 
@@ -134,11 +142,18 @@ public class BaseDesignAdapter extends BaseSwipeAdapter<BaseSwipeAdapter.BaseSwi
                 itemClickListener.onFavoriteClick(view, parentView);
             }
         });
+        parentView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                itemClickListener.onItemClicked(parentView);
+            }
+        });
     }
 
     public interface ItemClickListener {
         void onDownloadClick(View itemView, View parentView);
         void onFavoriteClick(View itemView, View parentView);
+        void onItemClicked(View itemView);
     }
 
 }

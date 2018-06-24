@@ -1,6 +1,7 @@
 package com.example.vikaskumar.coccompleteguide.Fragments;
 
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,18 +13,25 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.view.menu.MenuBuilder;
+import android.support.v7.view.menu.MenuPopupHelper;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.PopupMenu;
+
+import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -35,6 +43,7 @@ import com.example.vikaskumar.coccompleteguide.Models.DescriptionModel;
 import com.example.vikaskumar.coccompleteguide.R;
 import com.example.vikaskumar.coccompleteguide.adapters.BaseDesignAdapter;
 import com.example.vikaskumar.coccompleteguide.api.RestClient;
+import com.example.vikaskumar.coccompleteguide.utility.Navigator;
 import com.example.vikaskumar.coccompleteguide.utility.ObjectSerializer;
 import com.example.vikaskumar.coccompleteguide.utility.Resources;
 import com.google.gson.Gson;
@@ -49,6 +58,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -63,7 +73,7 @@ import retrofit2.Response;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class WarBase extends Fragment implements BaseDesignAdapter.ItemClickListener {
+public class WarBase extends Fragment implements BaseDesignAdapter.ItemClickListener{
 
     private SuperRecyclerView recyclerView;
     private BaseDesignAdapter adpter;
@@ -71,6 +81,7 @@ public class WarBase extends Fragment implements BaseDesignAdapter.ItemClickList
     private List<BaseDesignModel> baseDesignModelList = new ArrayList<BaseDesignModel>();
     private PopupMenu popupMenu;
     private FloatingActionButton townhallPopMenuShow;
+    public static int townhallid=10;
     public WarBase() {
         // Required empty public constructor
     }
@@ -90,13 +101,13 @@ public class WarBase extends Fragment implements BaseDesignAdapter.ItemClickList
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_war_base, container, false);
         initView(view);
-        initData();
+        initData(10);
         return view;
     }
 
 
     private void initView(View view) {
-        townhallPopMenuShow=(FloatingActionButton)view.findViewById(R.id.townhallSelection);
+        townhallPopMenuShow = (FloatingActionButton) view.findViewById(R.id.townhallSelection);
         recyclerView = (SuperRecyclerView) view.findViewById(R.id.base_design);
 
         adpter = new BaseDesignAdapter(baseDesignModelList, getContext(), this);
@@ -109,36 +120,26 @@ public class WarBase extends Fragment implements BaseDesignAdapter.ItemClickList
             @Override
             public void onMoreAsked(int overallItemsCount, int itemsBeforeMore, int maxLastVisiblePosition) {
                 page++;
-                initData();
+                Log.e("WarBase", "Inside more asked" + page);
+                initData(townhallid);
             }
         }, 1);
-
-        townhallPopMenuShow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                popupMenu = new PopupMenu(getContext(), view);
-                popupMenu.setOnDismissListener(new OnDismissListener());
-                popupMenu.setOnMenuItemClickListener(new OnMenuItemClickListener());
-                popupMenu.inflate(R.layout.townhall_menu);
-                popupMenu.show();
-            }
-        });
     }
 
-    private void initData() {
+    public void initData(int townhallId) {
         int id = getArguments().getInt("Id");
         switch (id) {
             case Resources.warBase:
-                downlaodWarBase(10, Resources.warBase);
+                downlaodWarBase(townhallId, Resources.warBase);
                 break;
             case Resources.farmingBase:
-                downlaodWarBase(8, Resources.farmingBase);
+                downlaodWarBase(townhallId, Resources.farmingBase);
                 break;
             case Resources.hybridBase:
-                downlaodWarBase(8, Resources.hybridBase);
+                downlaodWarBase(townhallId, Resources.hybridBase);
                 break;
             case Resources.tropiesBase:
-                downlaodWarBase(8, Resources.tropiesBase);
+                downlaodWarBase(townhallId, Resources.tropiesBase);
 
         }
     }
@@ -153,8 +154,7 @@ public class WarBase extends Fragment implements BaseDesignAdapter.ItemClickList
                 //Parse resposnse and update the list
                 try {
                     baseDesignModelList.addAll(ParseBaseDesignData(response));
-                }
-                catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 adpter.setData(baseDesignModelList);
@@ -175,21 +175,21 @@ public class WarBase extends Fragment implements BaseDesignAdapter.ItemClickList
         for (BaseDesignModel obj : response.body()) {
 
             // parse description JSON into DescriptionModel
-            DescriptionModel descriptionModel=new DescriptionModel();
+            DescriptionModel descriptionModel = new DescriptionModel();
             JSONObject descObject = new JSONObject(obj.getDescription());
             descriptionModel.setName(descObject.getString("Name"));
             descriptionModel.setDescription(descObject.getString("Description"));
             descriptionModel.setSpecialFeature(descObject.getString("SpecialFeature"));
             descriptionModel.setVideoUrl(descObject.getString("VideoUrl"));
-            JSONArray array=descObject.getJSONArray("AntiTroopies");
-            ArrayList<String> antiTroopies=new ArrayList<>();
-            for (int value=0 ;value<array.length();value++){
+            JSONArray array = descObject.getJSONArray("AntiTroopies");
+            ArrayList<String> antiTroopies = new ArrayList<>();
+            for (int value = 0; value < array.length(); value++) {
                 antiTroopies.add(array.getString(value));
             }
             descriptionModel.setAntiTroopies(antiTroopies);
             obj.setBaseDescription(descriptionModel);
             newBaseDesignData.add(obj);
-            Log.e("desxc",obj.getBaseDescription().getName());
+            Log.e("desxc", obj.getBaseDescription().getName());
 
         }
         return newBaseDesignData;
@@ -197,35 +197,35 @@ public class WarBase extends Fragment implements BaseDesignAdapter.ItemClickList
 
     @Override
     public void onDownloadClick(View itemView, final View parentView) {
-      //downoad map image on disk
-        Log.e("inside download","a");
-        Toast.makeText(getContext(), "downloading started ...",Toast.LENGTH_LONG).show();
+        //downoad map image on disk
+        Log.e("inside download", "a");
+        Toast.makeText(getContext(), "downloading started ...", Toast.LENGTH_LONG).show();
         int position = recyclerView.getRecyclerView().getChildLayoutPosition(parentView);
-        final int ImageId=baseDesignModelList.get(position).getMapId();
-        String url=baseDesignModelList.get(position).getUrl();
+        final int ImageId = baseDesignModelList.get(position).getMapId();
+        String url = baseDesignModelList.get(position).getUrl();
         Glide.with(getContext())
-                    .load(url)
-                    .asBitmap()
-                    .into(new SimpleTarget<Bitmap>() {
-                              @Override
-                              public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
-                                  Log.e("inside download","a"+resource);
+                .load(url)
+                .asBitmap()
+                .into(new SimpleTarget<Bitmap>() {
+                    @Override
+                    public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                        Log.e("inside download", "a" + resource);
 
-                                  saveImage(resource,ImageId);
-                              }
-                          });
+                        saveImage(resource, ImageId);
+                    }
+                });
 
     }
 
-    private void saveImage(Bitmap bitMapImg,int imageId) {
-        Log.e("inside download","ab");
+    private void saveImage(Bitmap bitMapImg, int imageId) {
+        Log.e("inside download", "ab");
 
         File filename;
         try {
             String path = Environment.getExternalStorageDirectory().toString();
-            int random=(new Random()).nextInt(120000)+100000;
+            int random = (new Random()).nextInt(120000) + 100000;
             //new File(path + "/BaseMaps").mkdirs();
-            filename = new File(path + "/Download/map_"+imageId+"_"+random+".jpg");
+            filename = new File(path + "/Download/map_" + imageId + "_" + random + ".jpg");
 
             FileOutputStream out = new FileOutputStream(filename);
 
@@ -235,7 +235,7 @@ public class WarBase extends Fragment implements BaseDesignAdapter.ItemClickList
 
             MediaStore.Images.Media.insertImage(getActivity().getContentResolver(), filename.getAbsolutePath(), filename.getName(), filename.getName());
 
-            Toast.makeText(getContext(), "File is Saved in  " + filename,Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), "File is Saved in  " + filename, Toast.LENGTH_LONG).show();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -244,33 +244,43 @@ public class WarBase extends Fragment implements BaseDesignAdapter.ItemClickList
 
 
     @Override
-    public void onFavoriteClick(View itemView,View parentView) {
+    public void onFavoriteClick(View itemView, View parentView) {
         int position = recyclerView.getRecyclerView().getChildLayoutPosition(parentView);
 
         //get mapid in shared prefrences
         ArrayList<Integer> mapIds;
-        ImageButton favourite=(ImageButton)itemView;
-        mapIds=getAllMapIds();
+        ImageButton favourite = (ImageButton) itemView;
+        mapIds = getAllMapIds();
         if (mapIds != null) {
             Log.e("Inside war base", "a:" + mapIds.size());
         }
-        if(mapIds==null || !mapIds.contains(baseDesignModelList.get(position).getMapId())){
-            if(mapIds==null)
-                mapIds=new ArrayList<>();
+        if (mapIds == null || !mapIds.contains(baseDesignModelList.get(position).getMapId())) {
+            if (mapIds == null)
+                mapIds = new ArrayList<>();
             mapIds.add(baseDesignModelList.get(position).getMapId());
             storeMapIdInPrefrencces(mapIds);
             favourite.setImageResource(R.drawable.red_heart);
             Log.e("Inside war base", "b");
-        }else{
-            mapIds.remove((Object)baseDesignModelList.get(position).getMapId());
+        } else {
+            mapIds.remove((Object) baseDesignModelList.get(position).getMapId());
             storeMapIdInPrefrencces(mapIds);
             favourite.setImageResource(R.drawable.blank_heart);
             Log.e("Inside war base", "c");
         }
     }
 
+    @Override
+    public void onItemClicked(View itemView) {
+        int position = recyclerView.getRecyclerView().getChildLayoutPosition(itemView);
+        //navigate to Map description activity
+        Gson gson = new Gson();
+        String mapDescriptionModel=gson.toJson(baseDesignModelList.get(position));
+        Log.e("map data",mapDescriptionModel);
+        Navigator.getInstance().navigateToMapDescriptionActivity(getActivity(),mapDescriptionModel);
+    }
+
     private ArrayList<Integer> getAllMapIds() {
-       // SharedPreferences prefs = getContext().getSharedPreferences("MAP_IDS", Context.MODE_PRIVATE);
+        // SharedPreferences prefs = getContext().getSharedPreferences("MAP_IDS", Context.MODE_PRIVATE);
         SharedPreferences settings;
         List<Integer> mapIds;
 
@@ -292,8 +302,8 @@ public class WarBase extends Fragment implements BaseDesignAdapter.ItemClickList
 
     }
 
-    private void storeMapIdInPrefrencces(ArrayList<Integer> mapIds){
-       // mapIds.add(mapid);
+    private void storeMapIdInPrefrencces(ArrayList<Integer> mapIds) {
+        // mapIds.add(mapid);
         if (mapIds == null)
             mapIds = new ArrayList<Integer>();
 
@@ -305,7 +315,7 @@ public class WarBase extends Fragment implements BaseDesignAdapter.ItemClickList
         editor = settings.edit();
 
         Gson gson = new Gson();
-        String jsonMapIds= gson.toJson(mapIds);
+        String jsonMapIds = gson.toJson(mapIds);
 
         editor.putString(Resources.MAP_IDS_KEY, jsonMapIds);
 
@@ -313,60 +323,13 @@ public class WarBase extends Fragment implements BaseDesignAdapter.ItemClickList
 
     }
 
-    //intialization of pop menu
-    private class OnDismissListener implements PopupMenu.OnDismissListener {
-
-        @Override
-        public void onDismiss(PopupMenu menu) {
-            // TODO Auto-generated method stub
-            Toast.makeText(getContext(), "Popup Menu is dismissed",
-                    Toast.LENGTH_SHORT).show();
+    public void onRefresh(){
+        baseDesignModelList.clear();
+        page=1;
+        if(recyclerView!=null) {
+            recyclerView.setRefreshing(true);
         }
-
+        initData(townhallid);
     }
 
-    private class OnMenuItemClickListener implements
-            PopupMenu.OnMenuItemClickListener {
-
-        @Override
-        public boolean onMenuItemClick(MenuItem item) {
-            // TODO Auto-generated method stub
-            switch (item.getItemId()) {
-                case R.id.townhall5:
-                    Toast.makeText(getContext(), "Java got clicked",
-                            Toast.LENGTH_SHORT).show();
-                    return true;
-                case R.id.townhall6:
-                    Toast.makeText(getContext(), "Android got clicked",
-                            Toast.LENGTH_SHORT).show();
-                    return true;
-                case R.id.townhall7:
-                    Toast.makeText(getContext(), "Python got clicked",
-                            Toast.LENGTH_SHORT).show();
-                    return true;
-                case R.id.townhall8:
-                    Toast.makeText(getContext(), "Ruby got clicked",
-                            Toast.LENGTH_SHORT).show();
-                    return true;
-                case R.id.townhall9:
-                    Toast.makeText(getContext(), "Ruby got clicked",
-                            Toast.LENGTH_SHORT).show();
-                    return true;
-                case R.id.townhall10:
-                    Toast.makeText(getContext(), "Ruby got clicked",
-                            Toast.LENGTH_SHORT).show();
-                    return true;
-                case R.id.townhall11:
-                    Toast.makeText(getContext(), "Ruby got clicked",
-                            Toast.LENGTH_SHORT).show();
-                    return true;
-                case R.id.townhall12:
-                    Toast.makeText(getContext(), "Ruby got clicked",
-                            Toast.LENGTH_SHORT).show();
-                    return true;
-
-            }
-            return false;
-        }
-    }
 }
