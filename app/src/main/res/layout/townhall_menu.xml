@@ -1,4 +1,4 @@
-
+<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="200dp"
@@ -9,7 +9,7 @@
         android:id="@+id/townhall5"
         android:showAsAction="ifRoom|withText"
         android:title="Townhall 5"
-        android:icon="@android:drawable/ic_popup_sync"
+        android:icon="@drawable/army_composition"
         android:visible="true"/>
     <item
         android:id="@+id/townhall6"
