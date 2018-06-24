@@ -17,7 +17,9 @@ public class Resources {
     public static final String MAP_IDS="MAP_IDS";
     public static final String MAP_IDS_KEY="MAP_ID_KEY";
 
-    public static String homeBaseDesignToolBarText = "Base Design";
+    public static final String homeBaseDesignToolBarText = "Base Design";
+    public static final String mapDescriptionToolBarText="Base Decription";
+    public static final String showMapImageToolBarText="Base View";
 
     public static final String HEADER_TITLE_KEY = "HEADER_TITLE_KEY";
     public static final String SOURCE_DESCRIPTION_KEY = "SOURCE_DESCRIPTION_KEY";

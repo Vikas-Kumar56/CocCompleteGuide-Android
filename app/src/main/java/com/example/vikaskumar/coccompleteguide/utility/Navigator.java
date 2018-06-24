@@ -12,6 +12,7 @@ import com.example.vikaskumar.coccompleteguide.HeroesActivity;
 import com.example.vikaskumar.coccompleteguide.HomeBaseActivity;
 import com.example.vikaskumar.coccompleteguide.HomeBaseDesignActivity;
 import com.example.vikaskumar.coccompleteguide.MapDescriptionActivity;
+import com.example.vikaskumar.coccompleteguide.ShowMapImageActivity;
 
 public class Navigator {
 
@@ -93,6 +94,13 @@ public class Navigator {
 
     public void navigateToMapDescriptionActivity(Context context, String data) {
         Intent subAct = MapDescriptionActivity.getCallingIntent(context);
+        // This is the data where you want to send to target activity.
+        subAct.putExtra("DATA", data);
+        context.startActivity(subAct);
+    }
+
+    public void navigateToShowMapImageActivity(Context context, String data) {
+        Intent subAct = ShowMapImageActivity.getCallingIntent(context);
         // This is the data where you want to send to target activity.
         subAct.putExtra("DATA", data);
         context.startActivity(subAct);

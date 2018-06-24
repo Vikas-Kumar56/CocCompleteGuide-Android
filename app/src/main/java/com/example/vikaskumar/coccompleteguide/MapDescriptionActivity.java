@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.Target;
 import com.example.vikaskumar.coccompleteguide.Models.BaseDesignModel;
 import com.example.vikaskumar.coccompleteguide.Models.DescriptionModel;
+import com.example.vikaskumar.coccompleteguide.utility.Navigator;
 import com.example.vikaskumar.coccompleteguide.utility.Resources;
 import com.google.gson.Gson;
 
@@ -41,13 +43,13 @@ import uk.co.senab.photoview.PhotoViewAttacher;
 public class MapDescriptionActivity extends AppCompatActivity {
 
     private BaseDesignModel mapDescriptionModel=new BaseDesignModel();
-
     private Toolbar toolbar;
     private TextView toolBarText;
     private TextView mapName,mapDesc,antiTroopies,specialFeature;
     private ImageView mapPic;
     private PhotoViewAttacher viewAttacher;
     private ImageButton downloadMap, favouriteicon;
+    private RelativeLayout relativeLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,8 +71,8 @@ public class MapDescriptionActivity extends AppCompatActivity {
             }
         });
         toolBarText = (TextView) findViewById(R.id.toolbarText);
-        toolBarText.setText(Resources.homeBaseDesignToolBarText);
-
+        toolBarText.setText(Resources.mapDescriptionToolBarText);
+        relativeLayout=(RelativeLayout)findViewById(R.id.mapContainer);
         mapName=(TextView)findViewById(R.id.mapName);
         mapDesc=(TextView)findViewById(R.id.mapDesc);
         antiTroopies=(TextView)findViewById(R.id.antiTroopies);
@@ -79,7 +81,7 @@ public class MapDescriptionActivity extends AppCompatActivity {
         favouriteicon=(ImageButton)findViewById(R.id.favouriteIcon);
         downloadMap=(ImageButton)findViewById(R.id.downloadMap);
         ArrayList<Integer> mapIds=getAllMapIds();;
-
+        //viewAttacher=new PhotoViewAttacher(mapPic);
         if(mapIds!=null && mapIds.contains(mapDescriptionModel.getMapId())){
 
             favouriteicon.setImageResource(R.drawable.red_heart);
@@ -99,6 +101,14 @@ public class MapDescriptionActivity extends AppCompatActivity {
                 onDownloadClick(view);
             }
         });
+
+        mapPic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigator.getInstance().navigateToShowMapImageActivity(MapDescriptionActivity.this,mapDescriptionModel.getUrl());
+            }
+        });
+
     }
     private void initData(){
         // get data passed from calling activity
@@ -106,8 +116,8 @@ public class MapDescriptionActivity extends AppCompatActivity {
         String model = extras.getString("DATA");
         Gson gson=new Gson();
         mapDescriptionModel=gson.fromJson(model,BaseDesignModel.class);
-        viewAttacher=new PhotoViewAttacher(mapPic);
-        viewAttacher.getDisplayMatrix();
+        //viewAttacher=new PhotoViewAttacher(mapPic);
+        //viewAttacher.getDisplayMatrix();
 
         mapName.setText(mapDescriptionModel.getBaseDescription().getName());
         mapDesc.setText(mapDescriptionModel.getBaseDescription().getDescription());
@@ -120,6 +130,7 @@ public class MapDescriptionActivity extends AppCompatActivity {
                 antiTroop+=str;
         }
         antiTroopies.setText(antiTroop);
+
         Glide.with(this)
                 .load(mapDescriptionModel.getUrl())
                 .fitCenter()
@@ -132,7 +143,7 @@ public class MapDescriptionActivity extends AppCompatActivity {
 
                     @Override
                     public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                        viewAttacher.update();
+                      //  viewAttacher.update();
                         return false;
                     }
                 })
