@@ -8,13 +8,21 @@
         <item>Clan Games</item>
         <item>Clan Wars</item>
         <item>Clan</item>
+        <item>Troops: Dark</item>
+        <item>Troops: Elixir</item>
         <item>Defences</item>
+        <item>Spell Factory: Dark</item>
+        <item>Spell Factory: Elixir</item>
+        <item>Spells: Dark</item>
+        <item>Spells: Elixir</item>
         <item>Leagues</item>
         <item>Townhall</item>
         <item>Heroes</item>
         <item>Gems</item>
         <item>Laboratory</item>
         <item>Obstacles</item>
+        <item>Treasury</item>
+        <item>Magic Items</item>
     </string-array>
 
     <integer-array name="beginner_guide_images">
@@ -22,16 +30,23 @@
         <item>@drawable/pic_builder</item>
         <item>@drawable/pic_clan_castle</item>
         <item>@drawable/pic_clan_games</item>
-        <item>@drawable/pic_army</item>
-        <item>@drawable/pic_builder</item>
+        <item>@drawable/pic_clan_wars</item>
+        <item>@drawable/pic_clan</item>
+        <item>@drawable/pic_troops_dark</item>
+        <item>@drawable/pic_troops_elixir</item>
         <item>@drawable/pic_defenses</item>
+        <item>@drawable/pic_spell_factory_dark</item>
+        <item>@drawable/pic_spell_factory_elixir</item>
+        <item>@drawable/pic_spells_dark</item>
+        <item>@drawable/pic_spells_elixir</item>
         <item>@drawable/pic_leagues</item>
         <item>@drawable/pic_townhall</item>
         <item>@drawable/pic_hero</item>
         <item>@drawable/pic_gems</item>
         <item>@drawable/pic_laboratory</item>
         <item>@drawable/pic_obstacles</item>
-
+        <item>@drawable/pic_treasury</item>
+        <item>@drawable/pic_magic_items</item>
     </integer-array>
 
     <integer-array name="defenses_images">

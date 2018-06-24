@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ClanWarsActivity">
+    tools:context=".ClanWarsActivity"
+    android:background="@drawable/background">
 
     <include layout="@layout/toolbar" />
 

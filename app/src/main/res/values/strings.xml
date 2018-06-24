@@ -88,4 +88,22 @@ avdaaaaaaaaaaaaaaadaasasc\asa\n\nasaaaaaaaaaaaaaaaaaaaaaaaaaaaAsA\N\NASDASDASADA
 
     </string>
 
+    <string name="clan_wars_overview_description">
+
+    </string>
+    <string name="clan_wars_day1_description">
+
+    </string>
+    <string name="clan_wars_day2_description">
+
+    </string>
+
+    <string name="spell_factory_dark_description">
+
+    </string>
+
+    <string name="spell_factory_elixir_description">
+
+    </string>
+
 </resources>

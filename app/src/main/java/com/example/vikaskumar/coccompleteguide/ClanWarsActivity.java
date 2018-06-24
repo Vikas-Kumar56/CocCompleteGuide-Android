@@ -1,20 +1,24 @@
 package com.example.vikaskumar.coccompleteguide;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.vikaskumar.coccompleteguide.adapters.GridImagesViewAdapter;
+import com.example.vikaskumar.coccompleteguide.utility.Navigator;
 import com.example.vikaskumar.coccompleteguide.utility.Resources;
 import com.malinskiy.superrecyclerview.SuperRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClanWarsActivity extends AppCompatActivity {
+public class ClanWarsActivity extends AppCompatActivity implements GridImagesViewAdapter.GridImageClickListener {
 
     private Toolbar toolbar;
     private TextView txtToolbarTitle;
@@ -30,6 +34,9 @@ public class ClanWarsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clan_wars);
+        initViews();
+        initData();
+        setUpViews();
     }
 
     private void initViews() {
@@ -59,6 +66,31 @@ public class ClanWarsActivity extends AppCompatActivity {
         gridImages = new ArrayList<>();
         for(int i = 0; i < length; i++) {
             gridImages.add(typedArray.getResourceId(i, 0));
+        }
+    }
+
+    private void setUpViews() {
+        txtToolbarTitle.setText(toolbarTitle);
+        txtHeaderTitle.setText(headerTitle);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
+        gridImageRecycler.setLayoutManager(gridLayoutManager);
+        GridImagesViewAdapter gridImagesViewAdapter = new GridImagesViewAdapter(this, gridImages, this);
+        gridImageRecycler.setAdapter(gridImagesViewAdapter);
+    }
+
+    public static Intent getCallingIntent(Context context) {
+        return new Intent(context, ClanWarsActivity.class);
+    }
+
+    @Override
+    public void onImageClick(View parentView) {
+        int position = gridImageRecycler.getRecyclerView().getChildLayoutPosition(parentView);
+        switch (position) {
+            case 0:
+                Navigator.getInstance().navigateToCompleteGuideActivity(this, "Overview", getResources().getString(R.string.clan_wars_overview_description)); break;
+            case 1:Navigator.getInstance().navigateToCompleteGuideActivity(this, "Day 1", getResources().getString(R.string.clan_wars_day1_description));break;
+            case 2: Navigator.getInstance().navigateToCompleteGuideActivity(this, "Day 2", getResources().getString(R.string.clan_wars_day2_description));break;
+
         }
     }
 }

@@ -39,6 +39,9 @@ public class GridViewAdapter extends RecyclerView.Adapter {
         GridViewItemHolder viewHolder = (GridViewItemHolder) holder;
         viewHolder.gridImage.setImageResource(gridImages.get(position));
         viewHolder.gridText.setText(gridTexts.get(position));
+        if (position == 1 || position == 3 || position == 5 || position == 4 || position == 6 || position == 7 || position == 11 || position == 12 || position == 13 || position == 14 || position == 17 || position == 19) {
+            viewHolder.gridImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        }
     }
 
     @Override

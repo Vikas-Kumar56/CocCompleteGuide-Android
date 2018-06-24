@@ -86,13 +86,15 @@ public class BeginnersGuideActivity extends AppCompatActivity implements GridVie
             case 4: Navigator.getInstance().navigateToClanWarsActivity(this, "Beginner's Guide", "Clan Wars"); break;
             case 5: Navigator.getInstance().navigateToCompleteGuideActivity(this, "Clans", getResources().getString(R.string.clans_description));break;
             case 6: Navigator.getInstance().navigateToDefensesActivity(this, "Beginner's Guide", "Defenses");break;
-            case 7: Navigator.getInstance().navigateToCompleteGuideActivity(this, "Leagues", getResources().getString(R.string.clans_description));break;
-            case 8: Navigator.getInstance().navigateToCompleteGuideActivity(this, "Townhall", getResources().getString(R.string.townhall_description));break;
-            case 9:
+            case 7: Navigator.getInstance().navigateToCompleteGuideActivity(this, "Spell Factory: Dark", getResources().getString(R.string.spell_factory_dark_description));break;
+            case 8: Navigator.getInstance().navigateToCompleteGuideActivity(this, "Spell Factory: Elixir", getResources().getString(R.string.spell_factory_elixir_description));break;
+            case 9: Navigator.getInstance().navigateToCompleteGuideActivity(this, "Leagues", getResources().getString(R.string.clans_description));break;
+            case 10: Navigator.getInstance().navigateToCompleteGuideActivity(this, "Townhall", getResources().getString(R.string.townhall_description));break;
+            case 11:
                 Navigator.getInstance().navigateToHeroesActivity(this, "");break;
-            case 10: Navigator.getInstance().navigateToCompleteGuideActivity(this, "Gems", getResources().getString(R.string.gems_description));break;
-            case 11: Navigator.getInstance().navigateToCompleteGuideActivity(this, "Laboratory", getResources().getString(R.string.laboratory_description));break;
-            case 12: Navigator.getInstance().navigateToCompleteGuideActivity(this, "Obstacles", getResources().getString(R.string.obstacles_description));break;
+            case 12: Navigator.getInstance().navigateToCompleteGuideActivity(this, "Gems", getResources().getString(R.string.gems_description));break;
+            case 13: Navigator.getInstance().navigateToCompleteGuideActivity(this, "Laboratory", getResources().getString(R.string.laboratory_description));break;
+            case 14: Navigator.getInstance().navigateToCompleteGuideActivity(this, "Obstacles", getResources().getString(R.string.obstacles_description));break;
         }
     }
 }
