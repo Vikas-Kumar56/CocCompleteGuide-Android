@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string-array name="home_village_texts">
+        <item>Beginner's guide</item>
+        <item>All TH Base designs</item>
+        <item>Engineered Base Designs</item>
+        <item>Army Compositions</item>
+        <item>Game Strategy</item>
+        <item>Funny Layouts</item>
+    </string-array>
+    <integer-array name="home_village_images">
+        <item>@drawable/pic_builder</item>
+        <item>@drawable/pic_builder</item>
+        <item>@drawable/pic_builder</item>
+        <item>@drawable/pic_builder</item>
+        <item>@drawable/pic_builder</item>
+        <item>@drawable/pic_builder</item>
+    </integer-array>
+    <integer-array name="home_village_fit_center_positions">
+
+    </integer-array>
+
     <string-array name="beginner_guide_texts">
         <item>Army</item>
         <item>Builders</item>
@@ -49,6 +69,18 @@
         <item>@drawable/pic_magic_items</item>
     </integer-array>
 
+    <integer-array name="begineer_guide_fit_center_positions">
+        <item>0</item>
+        <item>2</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>15</item>
+        <item>16</item>
+        <item>18</item>
+        <item>20</item>
+    </integer-array>
+
     <integer-array name="defenses_images">
         <item>@drawable/bt_defenses_airbomb</item>
         <item>@drawable/bt_defenses_airdefense</item>
@@ -69,7 +101,6 @@
         <item>@drawable/bt_defenses_walls</item>
         <item>@drawable/bt_defenses_wizardtower</item>
         <item>@drawable/bt_defenses_xbow</item>
-
 
     </integer-array>
 

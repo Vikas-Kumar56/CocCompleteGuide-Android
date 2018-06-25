@@ -17,12 +17,14 @@ import com.example.vikaskumar.coccompleteguide.utility.SpaceItemDecoration;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class BeginnersGuideActivity extends AppCompatActivity implements GridViewAdapter.ItemClickListener {
 
     private List<String> gridTexts;
-
-    private List<Integer> gridImages = new ArrayList<>(Arrays.asList(R.drawable.pic_army, R.drawable.pic_builder, R.drawable.pic_clan_castle, R.drawable.pic_clan_games, R.drawable.pic_army, R.drawable.pic_builder, R.drawable.pic_defenses, R.drawable.pic_leagues, R.drawable.pic_townhall, R.drawable.pic_hero, R.drawable.pic_gems, R.drawable.pic_laboratory, R.drawable.pic_obstacles));
+    private List<Integer> gridImages;
+    private List<Integer> fitCenterPositions;
 
     private Toolbar toolbar;
     private RecyclerView gridItems;
@@ -62,13 +64,19 @@ public class BeginnersGuideActivity extends AppCompatActivity implements GridVie
             gridImages.add(typedArray.getResourceId(i, 0));
         }
 
+        int[] arrayPositions = getResources().getIntArray(R.array.begineer_guide_fit_center_positions);
+        fitCenterPositions = new ArrayList<>();
+        for(int i : arrayPositions) {
+            fitCenterPositions.add(Integer.valueOf(i));
+        }
+
         gridTexts = new ArrayList<>(Arrays.asList(this.getResources().getStringArray(R.array.beginner_guide_texts)));
     }
 
     private void setUpViews() {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
         gridItems.setLayoutManager(gridLayoutManager);
-        GridViewAdapter gridViewAdapter = new GridViewAdapter(this, gridImages, gridTexts, this,"bGuide");
+        GridViewAdapter gridViewAdapter = new GridViewAdapter(this, gridImages, gridTexts, this,fitCenterPositions);
         gridItems.addItemDecoration(new SpaceItemDecoration(10));
         gridItems.setAdapter(gridViewAdapter);
     }

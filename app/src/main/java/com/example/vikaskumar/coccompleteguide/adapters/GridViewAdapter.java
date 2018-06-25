@@ -18,15 +18,15 @@ public class GridViewAdapter extends RecyclerView.Adapter {
     private Context context;
     private List<String> gridTexts;
     private List<Integer> gridImages;
-    private String source="";
+    private List<Integer> fitCenterPositions;
     private ItemClickListener itemClickListener;
 
-    public GridViewAdapter(Context context, List<Integer> gridImages, List<String> gridTexts, ItemClickListener itemClickListener,String source) {
+    public GridViewAdapter(Context context, List<Integer> gridImages, List<String> gridTexts, ItemClickListener itemClickListener, List<Integer> fitCenterPositions) {
         this.context = context;
         this.gridImages = gridImages;
         this.gridTexts = gridTexts;
         this.itemClickListener = itemClickListener;
-        this.source=source;
+        this.fitCenterPositions = fitCenterPositions;
     }
 
     @Override
@@ -42,10 +42,11 @@ public class GridViewAdapter extends RecyclerView.Adapter {
         GridViewItemHolder viewHolder = (GridViewItemHolder) holder;
         viewHolder.gridImage.setImageResource(gridImages.get(position));
         viewHolder.gridText.setText(gridTexts.get(position));
-        if(source.equals("bGuide")) {
-            if (position == 1 || position == 3 || position == 5 || position == 4 || position == 6 || position == 7 || position == 11 || position == 12 || position == 13 || position == 14 || position == 17 || position == 19) {
-                viewHolder.gridImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            }
+        if (fitCenterPositions.contains(position)) {
+            viewHolder.gridImage.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        }
+        else {
+            viewHolder.gridImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
     }
 
