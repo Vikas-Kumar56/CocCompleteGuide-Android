@@ -79,4 +79,23 @@
         <item>@drawable/bt_clanwar_day2</item>
     </integer-array>
 
+    <string-array name="army_composition_text">
+        <item>Composition By Town Hall</item>
+        <item>Queen Walk</item>
+        <item>Barch</item>
+        <item>Dragons</item>
+        <item>Giant+Healer</item>
+        <item>GOHO</item>
+        <item>GOLALoon</item>
+        <item>Golems X5</item>
+        <item>GoWiVA</item>
+        <item>GoWiWiPe</item>
+        <item>LavaLoonion</item>
+        <item>Mass Bowlers</item>
+        <item>Miners</item>
+    </string-array>
+    <integer-array name="army_composition_images">
+
+    </integer-array>
+
 </resources>

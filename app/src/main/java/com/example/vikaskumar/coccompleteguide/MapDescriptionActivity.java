@@ -54,8 +54,8 @@ public class MapDescriptionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_description);
-        initView();
         initData();
+        initView();
 
     }
 
@@ -80,6 +80,35 @@ public class MapDescriptionActivity extends AppCompatActivity {
         specialFeature=(TextView)findViewById(R.id.specialfeature);
         favouriteicon=(ImageButton)findViewById(R.id.favouriteIcon);
         downloadMap=(ImageButton)findViewById(R.id.downloadMap);
+        mapName.setText(mapDescriptionModel.getBaseDescription().getName().toUpperCase());
+        mapDesc.setText(mapDescriptionModel.getBaseDescription().getDescription());
+        specialFeature.setText(mapDescriptionModel.getBaseDescription().getSpecialFeature());
+        String antiTroop="";
+        for(String str : mapDescriptionModel.getBaseDescription().getAntiTroopies()){
+            if(!str.equals(mapDescriptionModel.getBaseDescription().getAntiTroopies().get(mapDescriptionModel.getBaseDescription().getAntiTroopies().size()-1)))
+                antiTroop+=str+",";
+            else
+                antiTroop+=str;
+        }
+        antiTroopies.setText(antiTroop);
+
+        Glide.with(this)
+                .load(mapDescriptionModel.getUrl())
+                .fitCenter()
+                // .centerCrop()
+                .listener(new RequestListener<String, GlideDrawable>() {
+                    @Override
+                    public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                        //  viewAttacher.update();
+                        return false;
+                    }
+                })
+                .into(mapPic);
         ArrayList<Integer> mapIds=getAllMapIds();;
         //viewAttacher=new PhotoViewAttacher(mapPic);
         if(mapIds!=null && mapIds.contains(mapDescriptionModel.getMapId())){
@@ -109,6 +138,8 @@ public class MapDescriptionActivity extends AppCompatActivity {
             }
         });
 
+
+
     }
     private void initData(){
         // get data passed from calling activity
@@ -118,37 +149,6 @@ public class MapDescriptionActivity extends AppCompatActivity {
         mapDescriptionModel=gson.fromJson(model,BaseDesignModel.class);
         //viewAttacher=new PhotoViewAttacher(mapPic);
         //viewAttacher.getDisplayMatrix();
-
-        mapName.setText(mapDescriptionModel.getBaseDescription().getName());
-        mapDesc.setText(mapDescriptionModel.getBaseDescription().getDescription());
-        specialFeature.setText(mapDescriptionModel.getBaseDescription().getSpecialFeature());
-        String antiTroop="";
-        for(String str : mapDescriptionModel.getBaseDescription().getAntiTroopies()){
-            if(!str.equals(mapDescriptionModel.getBaseDescription().getAntiTroopies().get(mapDescriptionModel.getBaseDescription().getAntiTroopies().size()-1)))
-                antiTroop+=str+",";
-            else
-                antiTroop+=str;
-        }
-        antiTroopies.setText(antiTroop);
-
-        Glide.with(this)
-                .load(mapDescriptionModel.getUrl())
-                .fitCenter()
-               // .centerCrop()
-                .listener(new RequestListener<String, GlideDrawable>() {
-                    @Override
-                    public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-                        return false;
-                    }
-
-                    @Override
-                    public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                      //  viewAttacher.update();
-                        return false;
-                    }
-                })
-                .into(mapPic);
-
     }
 
     public void onDownloadClick(View itemView) {

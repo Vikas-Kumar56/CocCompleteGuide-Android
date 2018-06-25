@@ -68,7 +68,7 @@ public class BeginnersGuideActivity extends AppCompatActivity implements GridVie
     private void setUpViews() {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
         gridItems.setLayoutManager(gridLayoutManager);
-        GridViewAdapter gridViewAdapter = new GridViewAdapter(this, gridImages, gridTexts, this);
+        GridViewAdapter gridViewAdapter = new GridViewAdapter(this, gridImages, gridTexts, this,"bGuide");
         gridItems.addItemDecoration(new SpaceItemDecoration(10));
         gridItems.setAdapter(gridViewAdapter);
     }
