@@ -94,6 +94,8 @@ public class HomeBaseActivity extends AppCompatActivity implements GridViewAdapt
         switch (position) {
             case 0: Navigator.getInstance().navigateToBeginnersGuideActivity(this, "");break;
             case 1: Navigator.getInstance().navigateToHomeBaseDesignActivity(this, Resources.homeBaseDesign + "");break;
+            case 2:Navigator.getInstance().navigateToCompleteGuideActivity(this,"Engineered Base",getResources().getString(R.string.engineered_base));break;
+            case 3: Navigator.getInstance().navigateToArmyCompositionActivity(this,Resources.armyComposition+"");break;
         }
     }
 }

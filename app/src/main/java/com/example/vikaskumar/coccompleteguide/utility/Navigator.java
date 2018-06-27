@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.example.vikaskumar.coccompleteguide.ArmyActivity;
+import com.example.vikaskumar.coccompleteguide.ArmyCompositionActivity;
 import com.example.vikaskumar.coccompleteguide.BeginnersGuideActivity;
 import com.example.vikaskumar.coccompleteguide.ClanWarsActivity;
 import com.example.vikaskumar.coccompleteguide.CompleteGuideDisplayActivity;
@@ -101,6 +102,12 @@ public class Navigator {
 
     public void navigateToShowMapImageActivity(Context context, String data) {
         Intent subAct = ShowMapImageActivity.getCallingIntent(context);
+        // This is the data where you want to send to target activity.
+        subAct.putExtra("DATA", data);
+        context.startActivity(subAct);
+    }
+    public void navigateToArmyCompositionActivity(Context context, String data) {
+        Intent subAct = ArmyCompositionActivity.getCallingIntent(context);
         // This is the data where you want to send to target activity.
         subAct.putExtra("DATA", data);
         context.startActivity(subAct);

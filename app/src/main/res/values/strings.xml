@@ -232,5 +232,47 @@
     <string name="spell_factory_elixir_description">
 
     </string>
+    <string name="army_composition_by_townhall">
+
+    </string>
+    <string name="queen_walk">
+
+    </string>
+    <string name="barch">
+
+    </string>
+    <string name="dragon">
+
+    </string>
+    <string name="giant_healer">
+
+    </string>
+    <string name="goho">
+
+    </string>
+    <string name="golaloon">
+
+    </string>
+    <string name="golem_x5">
+
+    </string>
+    <string name="gowiva">
+
+    </string>
+    <string name="gowiwipe">
+
+    </string>
+    <string name="lavaloonion">
+
+    </string>
+    <string name="mass_bowlers">
+
+    </string>
+    <string name="miners">
+
+    </string>
+    <string name="engineered_base">
+
+    </string>
 
 </resources>

@@ -126,7 +126,19 @@
         <item>Miners</item>
     </string-array>
     <integer-array name="army_composition_images">
-
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
     </integer-array>
 
 </resources>

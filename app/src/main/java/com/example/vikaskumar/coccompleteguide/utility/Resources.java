@@ -7,6 +7,7 @@ public class Resources {
     public static final int homeBase = 100;
     public static final int builderBase = 200;
     public static final int homeBaseDesign = 101;
+    public static final int armyComposition =102;
 
     public static final int warBase = 1;
     public static final int farmingBase = 2;
