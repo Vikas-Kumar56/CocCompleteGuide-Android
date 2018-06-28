@@ -41,7 +41,8 @@
         <activity android:name=".ClanWarsActivity" />
         <activity android:name=".MapDescriptionActivity" />
         <activity android:name=".ShowMapImageActivity" />
-        <activity android:name=".ArmyCompositionActivity"></activity>
+        <activity android:name=".ArmyCompositionActivity" />
+        <activity android:name=".StrategyGuideActivity"></activity>
     </application>
 
 </manifest>

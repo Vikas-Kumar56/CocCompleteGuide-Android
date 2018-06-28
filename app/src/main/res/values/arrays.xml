@@ -141,4 +141,46 @@
         <item>@drawable/bt_clanwar_day2</item>
     </integer-array>
 
+    <string-array name="strategy_guide_text">
+        <item>Attacking:Basics</item>
+        <item>Beginner's Guide</item>
+        <item>Anti 3 Star Bases</item>
+        <item>Clan Castle Troops</item>
+        <item>Clan Wars:Banned!</item>
+        <item>Clan Wars:Matching</item>
+        <item>Clan Wars:Tactics</item>
+        <item>Clan Wars:Tips</item>
+        <item>EarthQuake VS Jump</item>
+        <item>Farming Guide</item>
+        <item>Farming: Troops</item>
+        <item>Funneling</item>
+        <item>InActive Bases</item>
+        <item>Infero Towers: Multi VS Single</item>
+        <item>Mastering The Eagle</item>
+        <item>Spells Guide</item>
+        <item>Village Entry Point</item>
+        <item>ZapQuake</item>
+    </string-array>
+
+    <integer-array name="strategy_guide_images">
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+        <item>@drawable/bt_clanwar_day2</item>
+    </integer-array>
+
 </resources>

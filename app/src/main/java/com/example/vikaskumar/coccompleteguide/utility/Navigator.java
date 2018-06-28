@@ -14,6 +14,7 @@ import com.example.vikaskumar.coccompleteguide.HomeBaseActivity;
 import com.example.vikaskumar.coccompleteguide.HomeBaseDesignActivity;
 import com.example.vikaskumar.coccompleteguide.MapDescriptionActivity;
 import com.example.vikaskumar.coccompleteguide.ShowMapImageActivity;
+import com.example.vikaskumar.coccompleteguide.StrategyGuideActivity;
 
 public class Navigator {
 
@@ -108,6 +109,12 @@ public class Navigator {
     }
     public void navigateToArmyCompositionActivity(Context context, String data) {
         Intent subAct = ArmyCompositionActivity.getCallingIntent(context);
+        // This is the data where you want to send to target activity.
+        subAct.putExtra("DATA", data);
+        context.startActivity(subAct);
+    }
+    public void navigateToStrategyGuideActivity(Context context, String data) {
+        Intent subAct = StrategyGuideActivity.getCallingIntent(context);
         // This is the data where you want to send to target activity.
         subAct.putExtra("DATA", data);
         context.startActivity(subAct);
