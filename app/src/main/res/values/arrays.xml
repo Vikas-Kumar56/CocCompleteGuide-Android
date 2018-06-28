@@ -10,11 +10,11 @@
         <item>Funny Layouts</item>
     </string-array>
     <integer-array name="home_village_images">
+        <item>@drawable/pic_beginner_guide</item>
+        <item>@drawable/pic_th_base_designs</item>
         <item>@drawable/pic_builder</item>
-        <item>@drawable/pic_builder</item>
-        <item>@drawable/pic_builder</item>
-        <item>@drawable/pic_builder</item>
-        <item>@drawable/pic_builder</item>
+        <item>@drawable/pic_army_composition</item>
+        <item>@drawable/pic_game_strategy</item>
         <item>@drawable/pic_builder</item>
     </integer-array>
     <integer-array name="home_village_fit_center_positions">
